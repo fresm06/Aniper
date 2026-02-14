@@ -59,17 +59,19 @@ class PetView(
         }
 
     // Use wmParams instead of layoutParams to avoid shadowing View.getLayoutParams()
+    // Add extra padding for animations (scale, rotation, translation)
+    private val animationPadding = (petSize * 0.4f).toInt()
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        petSize,
-        petSize,
+        petSize + animationPadding * 2,
+        petSize + animationPadding * 2,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         PixelFormat.TRANSLUCENT
     ).apply {
         gravity = Gravity.TOP or Gravity.START
-        x = Random.nextInt(0, (screenWidth - petSize).coerceAtLeast(1))
-        y = groundY.toInt()
+        x = Random.nextInt(0, (screenWidth - petSize).coerceAtLeast(1)) - animationPadding
+        y = groundY.toInt() - animationPadding
     }
 
     // Create a new walk runnable each time - walks for a set duration then stops
@@ -145,11 +147,21 @@ class PetView(
     }
 
     init {
+        // Allow children to render outside parent bounds for animations
+        clipChildren = false
+        clipToPadding = false
+
         imageView = ImageView(context).apply {
             layoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
-            )
+            ).apply {
+                // Center image within the padded frame
+                leftMargin = animationPadding
+                topMargin = animationPadding
+                rightMargin = animationPadding
+                bottomMargin = animationPadding
+            }
             scaleType = ImageView.ScaleType.FIT_CENTER
         }
         addView(imageView)
