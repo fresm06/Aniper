@@ -76,6 +76,7 @@ class AnimationHelper {
 
     /**
      * Play grabbed catch animation - the pet scales up quickly for a "caught!" feel.
+     * Then continuously shakes left-right while being held.
      */
     fun playGrabbedWiggle(view: View) {
         cancelAnimations(view)
@@ -89,11 +90,21 @@ class AnimationHelper {
             interpolator = OvershootInterpolator(1.5f)
         }
 
+        // Continuous left-right shaking animation
+        val shake = ObjectAnimator.ofFloat(view, "rotation", 0f, -3f, 3f, 0f).apply {
+            duration = 300
+            interpolator = AccelerateDecelerateInterpolator()
+            repeatCount = ObjectAnimator.INFINITE
+        }
+
         val animatorSet = AnimatorSet().apply {
-            playTogether(scaleX, scaleY)
+            playTogether(scaleX, scaleY, shake)
             addListener(object : android.animation.AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: android.animation.Animator) {
-                    runningAnimations.remove(view)
+                    // Only remove if animation is not infinite (for cleanup on release)
+                    if (animation !is ObjectAnimator || animation.repeatCount != ObjectAnimator.INFINITE) {
+                        runningAnimations.remove(view)
+                    }
                 }
             })
             start()
