@@ -261,6 +261,7 @@ class PetView(
         if (currentState == PetState.TAP_REACTION) return
 
         isCurrentlyWalking = false
+        handler.removeCallbacksAndMessages(null)  // Cancel all pending behaviors
         setState(PetState.TAP_REACTION)
         animationHelper.playTapBounce(this)
 
