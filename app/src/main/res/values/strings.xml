@@ -17,6 +17,8 @@
     <string name="my_pets">My Pets</string>
     <string name="no_pets_yet">No pets yet.\nVisit the Market to find one!</string>
     <string name="stop_overlay">Stop Overlay</string>
+    <string name="settings">Settings</string>
+    <string name="pet_movement_range">Pet Movement Range</string>
 
     <!-- Creator -->
     <string name="create_character">Create Character</string>

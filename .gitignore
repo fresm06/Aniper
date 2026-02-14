@@ -10,3 +10,5 @@
 local.properties
 /app/build
 google-services.json
+gradle-8.5/
+*.zip

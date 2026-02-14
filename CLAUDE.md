@@ -8,6 +8,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 사용자가 직접 제작한 반려동물 캐릭터를 휴대폰 배경화면(Live Wallpaper)에 풀어두고 교감하며, 마켓을 통해 캐릭터를 거래할 수 있는 인터랙티브 커스터마이징 플랫폼.
 ## Common Commands
 
+### Building
+**IMPORTANT: Claude가 빌드를 직접 실행하고 오류를 해결한다.**
+```bash
+# Clean build
+./gradlew clean build
+
+# Build without tests
+./gradlew build -x test
+
+# Run debug APK
+./gradlew installDebug
+
+# Run tests
+./gradlew test
+```
+
 ### Linting and Code Quality
 ```bash
 # Run Android Lint

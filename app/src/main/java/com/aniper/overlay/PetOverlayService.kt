@@ -9,9 +9,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.util.DisplayMetrics
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.aniper.MainActivity
 import com.aniper.R
@@ -40,6 +43,7 @@ class PetOverlayService : Service() {
 
     private lateinit var windowManager: WindowManager
     private val petViews = mutableListOf<PetView>()
+    private var trashBinView: TrashBinView? = null
     private var screenWidth = 0
     private var screenHeight = 0
 
@@ -76,6 +80,12 @@ class PetOverlayService : Service() {
     }
 
     private fun addPetToOverlay(petId: String) {
+        // Check for duplicates - each pet can only be active once
+        if (petViews.any { it.pet.id == petId }) {
+            Toast.makeText(this, "This pet is already on your screen!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val pet = LocalPetData.samplePets.find { it.id == petId }
             ?: Pet(id = petId, name = "Pet", assetId = "default_cat")
         val asset = LocalPetData.getAssetById(pet.assetId)
@@ -86,7 +96,8 @@ class PetOverlayService : Service() {
             asset = asset,
             windowManager = windowManager,
             screenWidth = screenWidth,
-            screenHeight = screenHeight
+            screenHeight = screenHeight,
+            service = this
         )
 
         try {
@@ -144,9 +155,107 @@ class PetOverlayService : Service() {
             .build()
     }
 
+    /**
+     * Show the trash bin view.
+     */
+    fun showTrashBin() {
+        if (trashBinView != null) {
+            return  // Already visible
+        }
+
+        trashBinView = TrashBinView(this, windowManager, screenWidth).apply {
+            try {
+                windowManager.addView(this, wmParams)
+                slideIn()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    /**
+     * Hide the trash bin view.
+     */
+    fun hideTrashBin() {
+        trashBinView?.let {
+            it.slideOut()
+            // Remove after animation completes
+            Handler(Looper.getMainLooper()).postDelayed({
+                try {
+                    windowManager.removeView(it)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                trashBinView = null
+            }, 300)
+        }
+    }
+
+    /**
+     * Highlight trash bin when a pet is near it.
+     */
+    fun highlightTrashBin() {
+        trashBinView?.highlightForCollision()
+    }
+
+    /**
+     * Reset trash bin highlight.
+     */
+    fun resetTrashBinHighlight() {
+        trashBinView?.resetHighlight()
+    }
+
+    /**
+     * Remove a pet from the overlay.
+     * If no pets remain, automatically stop the service.
+     */
+    fun removePet(petView: PetView) {
+        petViews.remove(petView)
+        try {
+            windowManager.removeView(petView)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        // Auto-stop service when no pets are active
+        if (petViews.isEmpty()) {
+            hideTrashBin()
+            stopSelf()
+        }
+    }
+
+    /**
+     * Check if a pet at the given coordinates collides with trash bin.
+     * Returns true if collision detected.
+     */
+    fun checkTrashBinCollision(petX: Int, petY: Int, petSize: Int): Boolean {
+        // Trash bin must exist to check collision
+        if (trashBinView == null) return false
+
+        // Trash bin is at bottom center, 80dp size
+        val density = resources.displayMetrics.density
+        val trashBinSize = (80 * density).toInt()
+        val trashBinX = (screenWidth - trashBinSize) / 2
+        val trashBinY = screenHeight - trashBinSize - 100
+
+        val petCenterX = petX + petSize / 2
+        val petCenterY = petY + petSize / 2
+        val trashBinCenterX = trashBinX + trashBinSize / 2
+        val trashBinCenterY = trashBinY + trashBinSize / 2
+
+        val distX = petCenterX - trashBinCenterX
+        val distY = petCenterY - trashBinCenterY
+        val distance = kotlin.math.sqrt((distX * distX + distY * distY).toDouble()).toInt()
+
+        val collisionDistance = (petSize + trashBinSize) / 2
+        return distance < collisionDistance
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         petViews.forEach { it.destroy() }
         petViews.clear()
+        trashBinView?.destroy()
+        trashBinView = null
     }
 }

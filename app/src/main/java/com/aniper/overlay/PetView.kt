@@ -14,18 +14,21 @@ import androidx.core.content.ContextCompat
 import com.aniper.model.Pet
 import com.aniper.model.PetAsset
 import com.aniper.model.PetState
+import com.aniper.overlay.PetOverlayService
 import com.aniper.util.AnimationHelper
+import com.aniper.util.PreferencesHelper
 import kotlin.math.abs
 import kotlin.random.Random
 
 @SuppressLint("ViewConstructor")
 class PetView(
     context: Context,
-    private val pet: Pet,
+    internal val pet: Pet,
     private val asset: PetAsset,
     private val windowManager: WindowManager,
     private val screenWidth: Int,
-    private val screenHeight: Int
+    private val screenHeight: Int,
+    private val service: PetOverlayService
 ) : FrameLayout(context) {
 
     private val imageView: ImageView
@@ -46,8 +49,13 @@ class PetView(
 
     private val density = context.resources.displayMetrics.density
     private val petSize = (asset.width * density).toInt()
+    private val topBoundary: Float
+        get() = screenHeight * PreferencesHelper.getYMinPercent(context)
     private val groundY: Float
-        get() = (screenHeight - petSize - 80).toFloat()  // 80px above nav bar
+        get() {
+            val maxPercent = PreferencesHelper.getYMaxPercent(context)
+            return (screenHeight * maxPercent - petSize).toFloat()
+        }
 
     // Use wmParams instead of layoutParams to avoid shadowing View.getLayoutParams()
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
@@ -215,6 +223,13 @@ class PetView(
                         wmParams.x = (event.rawX - grabOffsetX).toInt()
                         wmParams.y = (event.rawY - grabOffsetY).toInt()
                         updateView()
+
+                        // Check for trash bin collision during drag
+                        if (service.checkTrashBinCollision(wmParams.x, wmParams.y, petSize)) {
+                            service.highlightTrashBin()
+                        } else {
+                            service.resetTrashBinHighlight()
+                        }
                     } else {
                         val dx = abs(event.rawX - lastTouchX)
                         val dy = abs(event.rawY - lastTouchY)
@@ -255,11 +270,21 @@ class PetView(
         isCurrentlyWalking = false
         setState(PetState.GRABBED)
         animationHelper.playGrabbedWiggle(imageView)
+        service.showTrashBin()
     }
 
     private fun onReleased() {
         isGrabbed = false
         animationHelper.stopAnimations(imageView)
+        service.resetTrashBinHighlight()
+
+        // Check if pet was released over trash bin
+        if (service.checkTrashBinCollision(wmParams.x, wmParams.y, petSize)) {
+            playDeleteAnimation()
+            return
+        }
+
+        service.hideTrashBin()
         setState(PetState.FALLING)
 
         val velocityX = (lastMoveX - lastTouchX) * 2f
@@ -295,6 +320,15 @@ class PetView(
             imageView.setImageDrawable(ContextCompat.getDrawable(context, resId))
         }
         imageView.scaleX = if (state == PetState.WALKING_LEFT) -1f else 1f
+    }
+
+    private fun playDeleteAnimation() {
+        stopAllBehavior()
+        service.resetTrashBinHighlight()
+        animationHelper.playDeleteAnimation(this) {
+            service.removePet(this)
+            destroy()
+        }
     }
 
     fun destroy() {

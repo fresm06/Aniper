@@ -45,6 +45,10 @@ class HomeFragment : Fragment() {
         emptyView.visibility = if (pets.isEmpty()) View.VISIBLE else View.GONE
         recyclerView.visibility = if (pets.isEmpty()) View.GONE else View.VISIBLE
 
+        view.findViewById<FloatingActionButton>(R.id.fab_settings).setOnClickListener {
+            YRangeSettingsDialog(requireContext()).show()
+        }
+
         view.findViewById<FloatingActionButton>(R.id.fab_stop_overlay).setOnClickListener {
             (activity as? MainActivity)?.stopOverlayService()
             Toast.makeText(requireContext(), "Overlay stopped", Toast.LENGTH_SHORT).show()

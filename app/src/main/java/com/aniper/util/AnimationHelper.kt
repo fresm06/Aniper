@@ -4,6 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import android.view.animation.OvershootInterpolator
 
@@ -109,5 +110,38 @@ class AnimationHelper {
         }
 
         view.postDelayed(onEnd, 300)
+    }
+
+    /**
+     * Delete animation - pet rotates, shrinks, and fades out.
+     * Plays when a pet is dropped into the trash bin.
+     */
+    fun playDeleteAnimation(view: View, onEnd: () -> Unit = {}) {
+        val rotation = ObjectAnimator.ofFloat(view, "rotation", 0f, 720f).apply {
+            duration = 600
+            interpolator = AccelerateInterpolator()
+        }
+        val scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1f, 0f).apply {
+            duration = 600
+            interpolator = AccelerateInterpolator()
+        }
+        val scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1f, 0f).apply {
+            duration = 600
+            interpolator = AccelerateInterpolator()
+        }
+        val fadeOut = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f).apply {
+            duration = 600
+            interpolator = AccelerateInterpolator()
+        }
+
+        AnimatorSet().apply {
+            playTogether(rotation, scaleX, scaleY, fadeOut)
+            addListener(object : android.animation.AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: android.animation.Animator) {
+                    onEnd()
+                }
+            })
+            start()
+        }
     }
 }
