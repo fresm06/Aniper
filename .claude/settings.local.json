@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git pull:*)",
+      "Bash(./gradlew build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "Bash(./gradlew:*)",
+      "Bash(chmod:*)",
+      "Bash(unzip:*)",
+      "Bash(./gradle-8.5/bin/gradle:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}

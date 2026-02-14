@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Aniper" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- Status Bar Style -->
+        <item name="android:navigationBarColor">@color/surface</item>
+
+        <!-- Button Styles -->
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>
+        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.Aniper.DisplaySmall" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textSize">@dimen/text_display_sm</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.TitleMedium" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/text_title_md</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.TitleSmall" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/text_title_sm</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.BodyMedium" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_body_md</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.BodySmall" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">@dimen/text_body_sm</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.LabelMedium" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/text_label_md</item>
+    </style>
+</resources>

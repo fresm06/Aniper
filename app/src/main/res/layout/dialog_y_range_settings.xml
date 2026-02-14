@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pet Movement Range"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Preview Box -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/rounded_preview_bg"
+        android:layout_marginBottom="20dp">
+
+        <!-- Screen preview -->
+        <View
+            android:id="@+id/preview_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:alpha="0.3" />
+
+        <!-- Top boundary line -->
+        <View
+            android:id="@+id/preview_top_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FF6B9E" />
+
+        <!-- Bottom boundary line -->
+        <View
+            android:id="@+id/preview_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FF6B9E"
+            android:layout_gravity="bottom" />
+
+        <!-- Allowed range highlight -->
+        <View
+            android:id="@+id/preview_range"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#FFD9E8"
+            android:alpha="0.5" />
+    </FrameLayout>
+
+    <!-- Top Boundary Slider -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top Boundary"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider_top_boundary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:value="30"
+        android:stepSize="5" />
+
+    <TextView
+        android:id="@+id/tv_top_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="30% from top"
+        android:textSize="12sp"
+        android:textColor="?android:textColorSecondary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Bottom Boundary Slider -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bottom Boundary"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider_bottom_boundary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:value="90"
+        android:stepSize="5" />
+
+    <TextView
+        android:id="@+id/tv_bottom_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="90% from top"
+        android:textSize="12sp"
+        android:textColor="?android:textColorSecondary"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_marginEnd="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+    </LinearLayout>
+
+</LinearLayout>

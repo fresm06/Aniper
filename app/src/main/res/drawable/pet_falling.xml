@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Body -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M48,78 C63,78 74,66 74,50 C74,34 63,24 48,24 C33,24 22,34 22,50 C22,66 33,78 48,78Z" />
+    <!-- Ears (flat/scared) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M26,30 L14,18 L34,26Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M27,29 L18,20 L33,27Z" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M70,30 L82,18 L62,26Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M69,29 L78,20 L63,27Z" />
+    <!-- Scared eyes (X shaped) -->
+    <path android:strokeColor="#333333" android:strokeWidth="2.5"
+        android:fillColor="#00000000"
+        android:pathData="M34,40 L42,50 M42,40 L34,50" />
+    <path android:strokeColor="#333333" android:strokeWidth="2.5"
+        android:fillColor="#00000000"
+        android:pathData="M54,40 L62,50 M62,40 L54,50" />
+    <!-- Nose -->
+    <path android:fillColor="#FF8A65"
+        android:pathData="M48,56 m-3,0 a3,2.5 0 1,1 6,0 a3,2.5 0 1,1 -6,0" />
+    <!-- Wavy mouth (scared) -->
+    <path android:strokeColor="#333333" android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M40,62 Q44,58 48,62 Q52,66 56,62" />
+    <!-- Arms up (panicking) -->
+    <path android:strokeColor="#FFB74D" android:strokeWidth="6"
+        android:fillColor="#00000000"
+        android:pathData="M22,44 L10,30" />
+    <path android:strokeColor="#FFB74D" android:strokeWidth="6"
+        android:fillColor="#00000000"
+        android:pathData="M74,44 L86,30" />
+    <!-- Feet (spread) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M30,74 Q26,86 34,88 Q40,86 38,74" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M58,74 Q56,86 62,88 Q70,86 66,74" />
+</vector>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Body (squashed) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M48,82 C70,82 80,72 80,58 C80,44 70,38 48,38 C26,38 16,44 16,58 C16,72 26,82 48,82Z" />
+    <!-- Ears (flat from impact) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M24,42 L14,28 L34,38Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M25,41 L18,30 L33,39Z" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M72,42 L82,28 L62,38Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M71,41 L78,30 L63,39Z" />
+    <!-- Dizzy eyes (spirals represented as circles) -->
+    <path android:strokeColor="#333333" android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M38,52 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
+    <path android:strokeColor="#333333" android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M38,52 m-2.5,0 a2.5,2.5 0 1,1 5,0 a2.5,2.5 0 1,1 -5,0" />
+    <path android:strokeColor="#333333" android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M58,52 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0" />
+    <path android:strokeColor="#333333" android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M58,52 m-2.5,0 a2.5,2.5 0 1,1 5,0 a2.5,2.5 0 1,1 -5,0" />
+    <!-- Nose -->
+    <path android:fillColor="#FF8A65"
+        android:pathData="M48,62 m-3,0 a3,2 0 1,1 6,0 a3,2 0 1,1 -6,0" />
+    <!-- Wavy mouth -->
+    <path android:strokeColor="#333333" android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M42,68 Q45,72 48,68 Q51,64 54,68" />
+    <!-- Stars above head -->
+    <path android:fillColor="#FFD54F"
+        android:pathData="M30,28 L32,22 L34,28 L40,26 L36,30 L40,34 L34,32 L32,38 L30,32 L24,34 L28,30 L24,26Z" />
+    <path android:fillColor="#FFD54F"
+        android:pathData="M60,24 L62,18 L64,24 L70,22 L66,26 L70,30 L64,28 L62,34 L60,28 L54,30 L58,26 L54,22Z" />
+    <!-- Short flat feet -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M30,78 Q30,86 38,86 Q46,86 46,78" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M50,78 Q50,86 58,86 Q66,86 66,78" />
+</vector>
