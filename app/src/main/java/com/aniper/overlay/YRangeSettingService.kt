@@ -160,7 +160,8 @@ class YRangeSettingService : Service() {
 
 /**
  * Custom view for Y-range setting overlay.
- * Displays top and bottom boundary lines that can be dragged.
+ * Displays bottom boundary lines that can be dragged.
+ * User sets the movement range by dragging the lines directly on screen.
  */
 @SuppressLint("ViewConstructor")
 class YRangeSettingView(
@@ -174,10 +175,9 @@ class YRangeSettingView(
     private val density = context.resources.displayMetrics.density
     private val lineHeightPx = (lineHeight * density).toInt()
 
-    private var topLineY = (screenHeight * 0.3f).toInt()
-    private var bottomLineY = (screenHeight * 0.9f).toInt()
-    private var draggingTopLine = false
-    private var draggingBottomLine = false
+    // Initialize with current saved settings from SharedPreferences
+    private var topLineY = (screenHeight * PreferencesHelper.getYMinPercent(context)).toInt()
+    private var bottomLineY = (screenHeight * PreferencesHelper.getYMaxPercent(context)).toInt()
 
     init {
         setBackgroundColor(0x00000000) // Transparent
@@ -201,7 +201,7 @@ class YRangeSettingView(
         bottomLine.translationY = bottomLineY.toFloat()
         addView(bottomLine, LayoutParams(screenWidth, lineHeightPx))
 
-        // OK Button
+        // OK Button - positioned at top
         val okButton = Button(context).apply {
             text = "OK"
             setBackgroundColor(0xFFFF6B9E.toInt())
@@ -215,13 +215,13 @@ class YRangeSettingView(
         addView(okButton, LayoutParams(
             (100 * density).toInt(),
             (48 * density).toInt(),
-            Gravity.BOTTOM or Gravity.END
+            Gravity.TOP or Gravity.END
         ).apply {
             rightMargin = (16 * density).toInt()
-            bottomMargin = (16 * density).toInt()
+            topMargin = (16 * density).toInt()
         })
 
-        // Cancel Button
+        // Cancel Button - positioned at top
         val cancelButton = Button(context).apply {
             text = "Cancel"
             setBackgroundColor(0xFF999999.toInt())
@@ -234,10 +234,10 @@ class YRangeSettingView(
         addView(cancelButton, LayoutParams(
             (100 * density).toInt(),
             (48 * density).toInt(),
-            Gravity.BOTTOM or Gravity.END
+            Gravity.TOP or Gravity.END
         ).apply {
             rightMargin = (120 * density).toInt()
-            bottomMargin = (16 * density).toInt()
+            topMargin = (16 * density).toInt()
         })
     }
 
@@ -258,10 +258,8 @@ class YRangeSettingView(
             setBackgroundColor(if (isTopLine) 0xFF6B9E00.toInt() else 0xFFE91E63.toInt())
             setOnTouchListener { _, event ->
                 when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        true
-                    }
-                    MotionEvent.ACTION_MOVE -> {
+                    MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
+                        // Start dragging immediately on ACTION_DOWN
                         val newY = event.rawY.toInt().coerceIn(0, screenHeight - lineHeightPx)
                         translationY = newY.toFloat()
                         onPositionChanged(newY)
