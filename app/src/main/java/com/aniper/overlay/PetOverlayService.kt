@@ -248,7 +248,8 @@ class PetOverlayService : Service() {
         val distY = petCenterY - trashBinCenterY
         val distance = kotlin.math.sqrt((distX * distX + distY * distY).toDouble()).toInt()
 
-        val collisionDistance = (petSize + trashBinSize) / 2
+        // Increase collision distance by 30% for better detection
+        val collisionDistance = ((petSize + trashBinSize) / 2 * 1.3f).toInt()
         return distance < collisionDistance
     }
 
