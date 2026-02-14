@@ -196,7 +196,7 @@ class PetView(
     @SuppressLint("ClickableViewAccessibility")
     private fun setupTouchListener() {
         var longPressTriggered = false
-        val longPressTimeout = 400L
+        val longPressTimeout = 300L
 
         val longPressRunnable = Runnable {
             longPressTriggered = true

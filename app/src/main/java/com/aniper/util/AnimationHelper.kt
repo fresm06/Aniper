@@ -75,11 +75,30 @@ class AnimationHelper {
     }
 
     /**
-     * Play grabbed wiggle animation - the pet wiggles when grabbed.
-     * [DISABLED - wiggle animation removed]
+     * Play grabbed catch animation - the pet scales up quickly for a "caught!" feel.
      */
     fun playGrabbedWiggle(view: View) {
-        // Wiggle animation disabled per user request
+        cancelAnimations(view)
+
+        val scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1f, 1.12f, 1f).apply {
+            duration = 200
+            interpolator = OvershootInterpolator(1.5f)
+        }
+        val scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1f, 1.12f, 1f).apply {
+            duration = 200
+            interpolator = OvershootInterpolator(1.5f)
+        }
+
+        val animatorSet = AnimatorSet().apply {
+            playTogether(scaleX, scaleY)
+            addListener(object : android.animation.AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: android.animation.Animator) {
+                    runningAnimations.remove(view)
+                }
+            })
+            start()
+        }
+        runningAnimations[view] = animatorSet
     }
 
     /**
