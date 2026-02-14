@@ -278,6 +278,7 @@ class PetView(
     private fun onGrabbed() {
         isGrabbed = true
         isCurrentlyWalking = false
+        handler.removeCallbacksAndMessages(null)  // Cancel all pending animations and movements
         setState(PetState.GRABBED)
         animationHelper.playGrabbedWiggle(imageView)
         service.showTrashBin()
