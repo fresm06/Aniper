@@ -46,6 +46,7 @@ class PetView(
     private var grabOffsetY = 0f
     private var walkingRight = true
     private var isCurrentlyWalking = false
+    private var lastStateChangeTime = 0L  // Prevent rapid state changes
 
     private val density = context.resources.displayMetrics.density
     private val petSize = (asset.width * density).toInt()
@@ -331,6 +332,11 @@ class PetView(
         if (currentState == PetState.GRABBED && state != PetState.FALLING) {
             return
         }
+
+        // Prevent rapid state changes to ensure one motion at a time
+        val now = System.currentTimeMillis()
+        if (now - lastStateChangeTime < 150) return  // Minimum 150ms between state changes
+        lastStateChangeTime = now
 
         currentState = state
         pet.state = state
