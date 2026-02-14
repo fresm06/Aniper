@@ -256,6 +256,9 @@ class PetView(
     }
 
     private fun onTapped() {
+        // Ignore multiple taps during tap reaction state
+        if (currentState == PetState.TAP_REACTION) return
+
         isCurrentlyWalking = false
         setState(PetState.TAP_REACTION)
         animationHelper.playTapBounce(this)
