@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aniper</string>
+    <string name="tagline">Cute pets on your screen!</string>
+    <string name="default_web_client_id">PLACEHOLDER_WEB_CLIENT_ID</string>
+
+    <!-- Auth -->
+    <string name="sign_in_with_google">Sign in with Google</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_creator">Create</string>
+    <string name="nav_market">Market</string>
+    <string name="nav_admin">Admin</string>
+
+    <!-- Home -->
+    <string name="my_pets">My Pets</string>
+    <string name="no_pets_yet">No pets yet.\nVisit the Market to find one!</string>
+    <string name="stop_overlay">Stop Overlay</string>
+
+    <!-- Creator -->
+    <string name="create_character">Create Character</string>
+    <string name="character_name">Character Name</string>
+    <string name="character_description">Description</string>
+    <string name="asset_states">Asset States</string>
+    <string name="asset_states_hint">Upload PNG or GIF for each state. Tap a slot to select an image.</string>
+    <string name="tap_to_select">Tap to select image</string>
+    <string name="preview">Preview</string>
+    <string name="upload_to_market">Upload to Market</string>
+
+    <!-- Market -->
+    <string name="market">Market</string>
+    <string name="market_empty">No characters available yet.</string>
+
+    <!-- Admin -->
+    <string name="admin_panel">Admin Panel</string>
+    <string name="access_denied">Access Denied</string>
+    <string name="admin_only">Admin access required</string>
+    <string name="no_pending_items">No pending items</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+
+    <!-- Overlay -->
+    <string name="overlay_notification_title">Aniper</string>
+    <string name="overlay_notification_text">Your pet is active!</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Body (slightly stretched) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M48,82 C63,82 74,70 74,52 C74,34 63,22 48,22 C33,22 22,34 22,52 C22,70 33,82 48,82Z" />
+    <!-- Ears (alert/up) -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M30,26 L20,4 L40,20Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M31,24 L24,8 L38,21Z" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M66,26 L76,4 L56,20Z" />
+    <path android:fillColor="#FF8A65"
+        android:pathData="M65,24 L72,8 L58,21Z" />
+    <!-- Surprised eyes (big circles) -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M38,44 m-7,0 a7,8 0 1,1 14,0 a7,8 0 1,1 -14,0" />
+    <path android:fillColor="#333333"
+        android:pathData="M38,44 m-4,0 a4,5 0 1,1 8,0 a4,5 0 1,1 -8,0" />
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M58,44 m-7,0 a7,8 0 1,1 14,0 a7,8 0 1,1 -14,0" />
+    <path android:fillColor="#333333"
+        android:pathData="M58,44 m-4,0 a4,5 0 1,1 8,0 a4,5 0 1,1 -8,0" />
+    <!-- Nose -->
+    <path android:fillColor="#FF8A65"
+        android:pathData="M48,56 m-3,0 a3,2.5 0 1,1 6,0 a3,2.5 0 1,1 -6,0" />
+    <!-- O mouth (surprised) -->
+    <path android:fillColor="#333333"
+        android:pathData="M48,64 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
+    <!-- Dangling feet -->
+    <path android:fillColor="#FFB74D"
+        android:pathData="M34,78 Q32,90 38,90 Q44,88 42,78" />
+    <path android:fillColor="#FFB74D"
+        android:pathData="M54,78 Q52,90 58,90 Q64,88 62,78" />
+</vector>
