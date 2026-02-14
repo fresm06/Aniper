@@ -296,7 +296,12 @@ class PetView(
         }
 
         service.hideTrashBin()
-        setState(PetState.FALLING)
+
+        // Directly update to FALLING state without 150ms delay restriction
+        // to ensure image updates immediately when released
+        currentState = PetState.FALLING
+        pet.state = PetState.FALLING
+        setDrawableForState(PetState.FALLING)
 
         val velocityX = (lastMoveX - lastTouchX) * 2f
         physicsEngine.reset()
