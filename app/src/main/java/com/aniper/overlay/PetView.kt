@@ -260,8 +260,14 @@ class PetView(
         setState(PetState.TAP_REACTION)
         animationHelper.playTapBounce(this)
 
+        // After tap bounce ends, keep pet still for additional duration
         handler.postDelayed({
-            scheduleNextBehavior()
+            setState(PetState.IDLE)
+            // Stay idle for 1-2 seconds before resuming normal behavior
+            val postTapIdleDuration = Random.nextLong(1000, 2000)
+            handler.postDelayed({
+                scheduleNextBehavior()
+            }, postTapIdleDuration)
         }, 800)
     }
 
