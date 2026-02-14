@@ -260,11 +260,11 @@ class PetView(
         setState(PetState.TAP_REACTION)
         animationHelper.playTapBounce(this)
 
-        // After tap bounce ends, keep pet still for longer duration
+        // After tap bounce ends, keep pet still for much longer duration
         handler.postDelayed({
             setState(PetState.IDLE)
-            // Stay idle for 2-4 seconds before resuming normal behavior
-            val postTapIdleDuration = Random.nextLong(2000, 4000)
+            // Stay idle for 3-5 seconds before resuming normal behavior
+            val postTapIdleDuration = Random.nextLong(3000, 5000)
             handler.postDelayed({
                 scheduleNextBehavior()
             }, postTapIdleDuration)
@@ -319,17 +319,22 @@ class PetView(
         // But always set drawable on first initialization (when currentState is null)
         if (currentState == state && currentState != null) return
 
+        // Prevent state changes during falling (can only go to LANDING)
+        if (currentState == PetState.FALLING && state != PetState.LANDING) {
+            return
+        }
+
+        // Prevent state changes during grabbing (can only go to FALLING)
+        if (currentState == PetState.GRABBED && state != PetState.FALLING) {
+            return
+        }
+
         currentState = state
         pet.state = state
         setDrawableForState(state)
     }
 
     private fun setDrawableForState(state: PetState) {
-        // Don't update drawable during falling or grabbing to prevent flickering
-        if (state == PetState.FALLING || state == PetState.GRABBED) {
-            return
-        }
-
         val resId = asset.getResForState(state)
         if (resId != 0) {
             imageView.setImageDrawable(ContextCompat.getDrawable(context, resId))
