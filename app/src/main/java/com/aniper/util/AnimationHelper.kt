@@ -40,11 +40,11 @@ class AnimationHelper {
      */
     fun playLandingSquash(view: View) {
         val squashX = ObjectAnimator.ofFloat(view, "scaleX", 1f, 1.3f, 0.9f, 1f).apply {
-            duration = 350
+            duration = 600
             interpolator = AccelerateDecelerateInterpolator()
         }
         val squashY = ObjectAnimator.ofFloat(view, "scaleY", 1f, 0.7f, 1.1f, 1f).apply {
-            duration = 350
+            duration = 600
             interpolator = AccelerateDecelerateInterpolator()
         }
 

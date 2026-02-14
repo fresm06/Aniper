@@ -274,8 +274,13 @@ class PetView(
         animationHelper.playLandingSquash(this)
 
         handler.postDelayed({
-            scheduleNextBehavior()
-        }, 400)
+            // Stay idle for 1-2 seconds before next behavior
+            setState(PetState.IDLE)
+            val idleDuration = Random.nextLong(1000, 2000)
+            handler.postDelayed({
+                scheduleNextBehavior()
+            }, idleDuration)
+        }, 600)
     }
 
     private fun setState(state: PetState) {
