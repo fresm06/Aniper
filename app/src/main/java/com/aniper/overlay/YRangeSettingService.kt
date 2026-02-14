@@ -253,12 +253,12 @@ class YRangeSettingView(
             setOnTouchListener { _, event ->
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        // Save the offset where user clicked relative to the line
-                        grabOffsetY = event.y
+                        // Save the offset: difference between raw screen position and view's current position
+                        grabOffsetY = event.rawY - translationY
                         true
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        // Move line with the click offset applied
+                        // Calculate new position: rawY minus the offset
                         val newY = (event.rawY - grabOffsetY).toInt().coerceIn(0, screenHeight - lineHeightPx)
                         translationY = newY.toFloat()
                         onPositionChanged(newY)

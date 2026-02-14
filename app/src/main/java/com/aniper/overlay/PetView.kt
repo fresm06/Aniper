@@ -309,6 +309,9 @@ class PetView(
     }
 
     private fun setState(state: PetState) {
+        // Skip if already in this state to prevent unnecessary drawable updates
+        if (currentState == state) return
+
         currentState = state
         pet.state = state
         setDrawableForState(state)
