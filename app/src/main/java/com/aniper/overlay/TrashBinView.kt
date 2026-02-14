@@ -28,12 +28,13 @@ class TrashBinView(
     private val size = 80  // 80dp
     private val density = context.resources.displayMetrics.density
     private val sizePx = (size * density).toInt()
+    private val animationPadding = (sizePx * 0.4f).toInt()  // Add padding for scale animations
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
 
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        sizePx,
-        sizePx,
+        sizePx + animationPadding * 2,
+        sizePx + animationPadding * 2,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
@@ -42,17 +43,27 @@ class TrashBinView(
     ).apply {
         gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
         x = 0
-        y = 100  // 100px above bottom
+        y = 100 + animationPadding  // Adjust for padding
     }
 
     init {
+        // Allow children to render outside parent bounds for animations
+        clipChildren = false
+        clipToPadding = false
+
         setBackgroundResource(R.drawable.trash_bin_background)
 
         imageView = ImageView(context).apply {
             layoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
-            )
+            ).apply {
+                // Center image within the padded frame
+                leftMargin = animationPadding
+                topMargin = animationPadding
+                rightMargin = animationPadding
+                bottomMargin = animationPadding
+            }
             scaleType = ImageView.ScaleType.CENTER_INSIDE
             setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_trash_bin))
         }

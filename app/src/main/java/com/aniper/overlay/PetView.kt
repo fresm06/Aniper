@@ -237,8 +237,8 @@ class PetView(
                         wmParams.y = (event.rawY - grabOffsetY).toInt()
                         updateView()
 
-                        // Check for trash bin collision during drag
-                        if (service.checkTrashBinCollision(wmParams.x, wmParams.y, petSize)) {
+                        // Check for trash bin collision during drag (account for animation padding)
+                        if (service.checkTrashBinCollision(wmParams.x + animationPadding, wmParams.y + animationPadding, petSize)) {
                             service.highlightTrashBin()
                         } else {
                             service.resetTrashBinHighlight()
@@ -302,8 +302,8 @@ class PetView(
         animationHelper.stopAnimations(imageView)
         service.resetTrashBinHighlight()
 
-        // Check if pet was released over trash bin
-        if (service.checkTrashBinCollision(wmParams.x, wmParams.y, petSize)) {
+        // Check if pet was released over trash bin (account for animation padding)
+        if (service.checkTrashBinCollision(wmParams.x + animationPadding, wmParams.y + animationPadding, petSize)) {
             playDeleteAnimation()
             return
         }
