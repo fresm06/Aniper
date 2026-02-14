@@ -185,15 +185,7 @@ class YRangeSettingView(
     }
 
     private fun setupUI() {
-        // Top line
-        val topLine = DraggableLineView(context, true) { newY ->
-            topLineY = newY.coerceIn(0, bottomLineY - 50)
-            invalidate()
-        }
-        topLine.translationY = topLineY.toFloat()
-        addView(topLine, LayoutParams(screenWidth, lineHeightPx))
-
-        // Bottom line
+        // Bottom line only (no top line)
         val bottomLine = DraggableLineView(context, false) { newY ->
             bottomLineY = newY.coerceIn(topLineY + 50, screenHeight)
             invalidate()
@@ -254,13 +246,20 @@ class YRangeSettingView(
         val onPositionChanged: (Int) -> Unit
     ) : View(context) {
 
+        private var grabOffsetY = 0f
+
         init {
-            setBackgroundColor(if (isTopLine) 0xFF6B9E00.toInt() else 0xFFE91E63.toInt())
+            setBackgroundColor(0xFFE91E63.toInt())  // Only pink color (bottom line)
             setOnTouchListener { _, event ->
                 when (event.action) {
-                    MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                        // Start dragging immediately on ACTION_DOWN
-                        val newY = event.rawY.toInt().coerceIn(0, screenHeight - lineHeightPx)
+                    MotionEvent.ACTION_DOWN -> {
+                        // Save the offset where user clicked relative to the line
+                        grabOffsetY = event.y
+                        true
+                    }
+                    MotionEvent.ACTION_MOVE -> {
+                        // Move line with the click offset applied
+                        val newY = (event.rawY - grabOffsetY).toInt().coerceIn(0, screenHeight - lineHeightPx)
                         translationY = newY.toFloat()
                         onPositionChanged(newY)
                         true
