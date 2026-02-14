@@ -36,6 +36,15 @@
                 android:value="pet_overlay_on_screen" />
         </service>
 
+        <service
+            android:name=".overlay.YRangeSettingService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="y_range_setting" />
+        </service>
+
     </application>
 
 </manifest>

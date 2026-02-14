@@ -27,6 +27,7 @@ class PetOverlayService : Service() {
         private const val CHANNEL_ID = "aniper_overlay_channel"
         private const val NOTIFICATION_ID = 1001
         private const val ACTION_STOP = "com.aniper.ACTION_STOP_OVERLAY"
+        const val ACTION_UPDATE_Y_RANGE = "com.aniper.ACTION_UPDATE_Y_RANGE"
         const val EXTRA_PET_ID = "extra_pet_id"
 
         fun start(context: Context, petId: String = "pet_1") {

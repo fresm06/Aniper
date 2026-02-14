@@ -12,7 +12,8 @@
       "Bash(./gradlew:*)",
       "Bash(chmod:*)",
       "Bash(unzip:*)",
-      "Bash(./gradle-8.5/bin/gradle:*)"
+      "Bash(./gradle-8.5/bin/gradle:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

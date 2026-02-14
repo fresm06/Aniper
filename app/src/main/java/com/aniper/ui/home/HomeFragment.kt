@@ -46,7 +46,15 @@ class HomeFragment : Fragment() {
         recyclerView.visibility = if (pets.isEmpty()) View.GONE else View.VISIBLE
 
         view.findViewById<FloatingActionButton>(R.id.fab_settings).setOnClickListener {
-            YRangeSettingsDialog(requireContext()).show()
+            val activity = requireActivity() as MainActivity
+            if (!activity.hasOverlayPermission()) {
+                activity.requestOverlayPermission()
+                return@setOnClickListener
+            }
+
+            // Start Y-range setting service
+            com.aniper.overlay.YRangeSettingService.start(requireContext())
+            Toast.makeText(requireContext(), "Drag lines to set pet movement range", Toast.LENGTH_SHORT).show()
         }
 
         view.findViewById<FloatingActionButton>(R.id.fab_stop_overlay).setOnClickListener {
