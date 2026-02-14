@@ -36,7 +36,7 @@ class PetView(
     private val handler = Handler(Looper.getMainLooper())
     private val animationHelper = AnimationHelper()
 
-    private var currentState = PetState.IDLE
+    private var currentState: PetState? = null  // Initialize as null to ensure drawable is set on first setState
     private var isGrabbed = false
     private var lastTouchX = 0f
     private var lastTouchY = 0f
@@ -310,7 +310,8 @@ class PetView(
 
     private fun setState(state: PetState) {
         // Skip if already in this state to prevent unnecessary drawable updates
-        if (currentState == state) return
+        // But always set drawable on first initialization (when currentState is null)
+        if (currentState == state && currentState != null) return
 
         currentState = state
         pet.state = state
