@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Yellow button background -->
+    <solid android:color="@color/secondary" />
+    <!-- Navy border -->
+    <stroke
+        android:width="@dimen/stroke_thick"
+        android:color="@color/primary" />
+    <!-- Highly rounded corners -->
+    <corners android:radius="32dp" />
+</shape>

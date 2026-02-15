@@ -19,10 +19,13 @@
     <dimen name="text_label_md">12sp</dimen>
     <dimen name="text_label_sm">11sp</dimen>
 
-    <!-- Corner radius - Soft Rounded Style (귀여운 라운드 코너) -->
+    <!-- Corner radius - Tamagotchi Rounded Style (다마고치 둥근 스타일) -->
     <dimen name="corner_radius_sm">12dp</dimen>
     <dimen name="corner_radius_md">20dp</dimen>
-    <dimen name="corner_radius_lg">28dp</dimen>
+    <dimen name="corner_radius_lg">24dp</dimen>
+    <dimen name="corner_radius_button">32dp</dimen>
+    <dimen name="corner_radius_card">24dp</dimen>
+    <dimen name="corner_radius_chip">20dp</dimen>
     <dimen name="corner_radius_xl">36dp</dimen>
     <dimen name="corner_radius_full">50dp</dimen>
 
@@ -47,9 +50,13 @@
     <dimen name="card_min_height">120dp</dimen>
     <dimen name="card_padding">16dp</dimen>
 
-    <!-- Divider & Stroke -->
+    <!-- Divider & Stroke (Tamagotchi Thick Border) -->
     <dimen name="divider_height">1dp</dimen>
     <dimen name="stroke_width">1.5dp</dimen>
+    <dimen name="stroke_thin">1.5dp</dimen>
+    <dimen name="stroke_medium">2.5dp</dimen>
+    <dimen name="stroke_thick">3dp</dimen>
+    <dimen name="stroke_extra_thick">4dp</dimen>
 
     <!-- Asymmetric Corner Radius -->
     <dimen name="corner_radius_asymmetric_large">32dp</dimen>

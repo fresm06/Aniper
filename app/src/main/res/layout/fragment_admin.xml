@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Header with Wave Background -->
+    <!-- Header - Admin Style (Navy/Red Gradient) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_admin"
         android:layout_width="0dp"
@@ -14,7 +14,7 @@
         android:paddingEnd="@dimen/spacing_lg"
         android:paddingTop="@dimen/spacing_xl"
         android:paddingBottom="@dimen/spacing_lg"
-        android:background="@drawable/bg_wave_admin"
+        android:background="@drawable/bg_admin_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,7 +26,8 @@
             android:text="@string/admin_panel"
             android:textSize="@dimen/text_title_lg"
             android:textStyle="bold"
-            android:textColor="?attr/colorOnSurface"
+            android:fontFamily="@font/fredoka"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,8 +48,9 @@
             android:layout_marginTop="@dimen/spacing_md"
             android:text="신청된 캐릭터를 관리하세요 📋"
             android:textSize="@dimen/text_body_sm"
-            android:textColor="?attr/colorOnSurface"
-            android:alpha="0.6"
+            android:fontFamily="@font/quicksand"
+            android:textColor="@color/white"
+            android:alpha="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_admin_title" />

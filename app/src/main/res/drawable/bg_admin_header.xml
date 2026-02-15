@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Navy to Red gradient -->
+    <gradient
+        android:angle="90"
+        android:endColor="@color/error_light"
+        android:startColor="@color/gradient_navy_start"
+        android:type="linear" />
+    <!-- Rounded bottom corners only -->
+    <corners
+        android:bottomLeftRadius="32dp"
+        android:bottomRightRadius="32dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp" />
+</shape>

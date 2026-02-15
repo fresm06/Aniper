@@ -15,7 +15,7 @@
         android:paddingTop="@dimen/spacing_lg"
         android:paddingBottom="@dimen/spacing_xl">
 
-        <!-- Header with Accent -->
+        <!-- Header with Tamagotchi Style -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,25 +29,27 @@
                 android:text="@string/create_character"
                 android:textSize="@dimen/text_title_lg"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnSurface" />
+                android:fontFamily="@font/fredoka"
+                android:textColor="@color/primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="새로운 캐릭터를 만들어 보세요! ✨"
                 android:textSize="@dimen/text_body_sm"
+                android:fontFamily="@font/quicksand"
                 android:textColor="?attr/colorOnSurface"
                 android:alpha="0.6"
                 android:layout_marginTop="@dimen/spacing_xs" />
 
         </LinearLayout>
 
-        <!-- Large Circular Preview Area -->
+        <!-- Large Rounded Square Preview Area -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="@dimen/spacing_xl"
-            android:background="@drawable/bg_preview_circle">
+            android:background="@drawable/bg_tamagotchi_preview">
 
             <ImageView
                 android:id="@+id/iv_preview"
@@ -105,7 +107,8 @@
             android:text="@string/asset_states"
             android:textSize="@dimen/text_title_sm"
             android:textStyle="bold"
-            android:textColor="?attr/colorOnSurface" />
+            android:fontFamily="@font/fredoka"
+            android:textColor="@color/primary" />
 
         <TextView
             android:layout_width="match_parent"
@@ -113,6 +116,7 @@
             android:layout_marginBottom="@dimen/spacing_md"
             android:text="@string/asset_states_hint"
             android:textSize="@dimen/text_body_sm"
+            android:fontFamily="@font/quicksand"
             android:textColor="?android:textColorSecondary"
             android:lineSpacingExtra="2sp" />
 
@@ -148,10 +152,12 @@
                 android:text="@string/upload_to_market"
                 android:textSize="@dimen/text_body_sm"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                app:cornerRadius="@dimen/corner_radius_lg"
-                app:elevation="@dimen/elevation_md"
-                app:backgroundTint="@color/primary" />
+                android:fontFamily="@font/fredoka"
+                android:textColor="@color/primary"
+                app:cornerRadius="@dimen/corner_radius_button"
+                app:elevation="0dp"
+                app:backgroundTint="@color/secondary"
+                android:background="@drawable/bg_tamagotchi_button" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_preview"
@@ -160,10 +166,11 @@
                 android:text="@string/preview"
                 android:textSize="@dimen/text_body_sm"
                 android:textStyle="bold"
+                android:fontFamily="@font/fredoka"
                 android:textColor="@color/primary"
-                app:cornerRadius="@dimen/corner_radius_lg"
+                app:cornerRadius="@dimen/corner_radius_button"
                 app:strokeColor="@color/primary"
-                app:strokeWidth="@dimen/stroke_width"
+                app:strokeWidth="@dimen/stroke_thick"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
         </LinearLayout>

@@ -3,9 +3,28 @@
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
-    android:viewportHeight="24"
-    android:tint="?attr/colorControlNormal">
+    android:viewportHeight="24">
+    <!-- Palette circle -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M3,17.25V21h3.75L17.81,9.94l-3.75,-3.75L3,17.25zM20.71,7.04c0.39,-0.39 0.39,-1.02 0,-1.41l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83 3.75,3.75 1.83,-1.83z" />
+        android:pathData="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z"
+        android:strokeColor="@color/primary"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.5" />
+    <!-- Color dot 1 -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M 6,12 A 1.5,1.5 0 1,0 6,12.1 Z" />
+    <!-- Color dot 2 -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M 10,8 A 1.5,1.5 0 1,0 10,8.1 Z" />
+    <!-- Color dot 3 -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M 14,8 A 1.5,1.5 0 1,0 14,8.1 Z" />
+    <!-- Color dot 4 -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M 18,12 A 1.5,1.5 0 1,0 18,12.1 Z" />
 </vector>

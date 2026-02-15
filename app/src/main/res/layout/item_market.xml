@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/spacing_md">
 
-    <!-- Asymmetric Card Background -->
+    <!-- Tamagotchi Card Background -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_asymmetric_card"
+        android:background="@drawable/bg_tamagotchi_card"
         android:elevation="6dp" />
 
     <LinearLayout
@@ -33,13 +33,13 @@
                 android:contentDescription="Market item thumbnail"
                 android:background="@color/tertiary_light" />
 
-            <!-- Popular Badge - Star Shape -->
+            <!-- Popular Badge - Yellow Circle -->
             <View
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="top|end"
                 android:layout_margin="@dimen/spacing_md"
-                android:background="@drawable/bg_star_badge" />
+                android:background="@drawable/bg_pixel_badge_yellow" />
 
         </FrameLayout>
 
@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_body_lg"
                 android:textStyle="bold"
+                android:fontFamily="@font/fredoka"
                 android:textColor="?attr/colorOnSurface"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -66,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xs"
                 android:textSize="@dimen/text_body_sm"
+                android:fontFamily="@font/quicksand"
                 android:textColor="?attr/colorOnSurface"
                 android:alpha="0.6"
                 android:maxLines="1"
@@ -85,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="@dimen/text_label_md"
+                    android:fontFamily="@font/fredoka"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
                     android:maxLines="1"

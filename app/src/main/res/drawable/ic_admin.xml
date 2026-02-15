@@ -3,9 +3,19 @@
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
-    android:viewportHeight="24"
-    android:tint="?attr/colorControlNormal">
+    android:viewportHeight="24">
+    <!-- Gear/Settings icon -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5l-9,-4zM12,11.99h7c-0.53,4.12 -3.28,7.79 -7,8.94V12H5V6.3l7,-3.11v8.8z" />
+        android:pathData="M12,2C12,2 14.5,2 15.5,3.5C16.5,5 16,7 16,7L17,8C19,8 20.5,9.5 20.5,11.5C20.5,13.5 19,15 17,15L16,16C16,16 16.5,18 15.5,19.5C14.5,21 12,21 12,21C12,21 9.5,21 8.5,19.5C7.5,18 8,16 8,16L7,15C5,15 3.5,13.5 3.5,11.5C3.5,9.5 5,8 7,8L8,7C8,7 7.5,5 8.5,3.5C9.5,2 12,2 12,2Z"
+        android:strokeColor="@color/primary"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.5" />
+    <!-- Center circle - using path for circle -->
+    <path
+        android:pathData="M 12,9 A 2.5,2.5 0 1,0 12,14 A 2.5,2.5 0 1,0 12,9"
+        android:strokeColor="@color/primary"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.5" />
 </vector>

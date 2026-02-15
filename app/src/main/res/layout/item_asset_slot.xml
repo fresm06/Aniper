@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/spacing_sm">
 
-    <!-- Playful Asymmetric Background -->
+    <!-- Tamagotchi Card Background -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_asymmetric_card"
+        android:background="@drawable/bg_tamagotchi_card"
         android:elevation="4dp" />
 
     <LinearLayout
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_body_md"
                 android:textStyle="bold"
+                android:fontFamily="@font/fredoka"
                 android:textColor="?attr/colorOnSurface" />
 
             <TextView
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tap_to_select"
                 android:textSize="@dimen/text_body_sm"
+                android:fontFamily="@font/quicksand"
                 android:textColor="?android:textColorSecondary" />
         </LinearLayout>
     </LinearLayout>

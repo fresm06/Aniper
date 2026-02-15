@@ -6,11 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/spacing_md">
 
-    <!-- Asymmetric Card Background -->
+    <!-- Tamagotchi Card Background -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_asymmetric_card"
+        android:background="@drawable/bg_tamagotchi_card"
         android:elevation="6dp" />
 
     <LinearLayout
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_body_md"
                 android:textStyle="bold"
+                android:fontFamily="@font/fredoka"
                 android:textColor="?attr/colorOnSurface"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -53,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xs"
                 android:textSize="@dimen/text_label_md"
+                android:fontFamily="@font/quicksand"
                 android:textColor="?android:textColorSecondary"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -66,20 +68,34 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_approve"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/spacing_xs"
                     android:text="@string/approve"
+                    android:textSize="@dimen/text_body_sm"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/fredoka"
+                    android:textColor="@color/white"
+                    app:cornerRadius="@dimen/corner_radius_button"
+                    app:elevation="0dp"
+                    app:backgroundTint="@color/success"
                     style="@style/Widget.MaterialComponents.Button" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_reject"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
                     android:layout_marginStart="@dimen/spacing_xs"
                     android:text="@string/reject"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                    android:textSize="@dimen/text_body_sm"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/fredoka"
+                    android:textColor="@color/white"
+                    app:cornerRadius="@dimen/corner_radius_button"
+                    app:elevation="0dp"
+                    app:backgroundTint="@color/error"
+                    style="@style/Widget.MaterialComponents.Button" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

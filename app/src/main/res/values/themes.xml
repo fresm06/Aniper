@@ -26,67 +26,76 @@
     </style>
 
     <!-- ============ TEXT STYLES ============ -->
-    <!-- Display - Large heading -->
+    <!-- Display - Large heading (Fredoka Bold, 36sp) -->
     <style name="TextAppearance.Aniper.DisplaySmall" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textSize">@dimen/text_display_sm</item>
+        <item name="android:fontFamily">@font/fredoka</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:letterSpacing">-0.01</item>
     </style>
 
-    <!-- Title - Large -->
+    <!-- Title - Large (Fredoka Bold, 24sp) -->
     <style name="TextAppearance.Aniper.TitleLarge" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_lg</item>
+        <item name="android:fontFamily">@font/fredoka</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:letterSpacing">-0.005</item>
     </style>
 
-    <!-- Title - Medium -->
+    <!-- Title - Medium (Fredoka SemiBold, 20sp) -->
     <style name="TextAppearance.Aniper.TitleMedium" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_md</item>
+        <item name="android:fontFamily">@font/fredoka</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
-    <!-- Title - Small -->
+    <!-- Title - Small (Fredoka Medium, 18sp) -->
     <style name="TextAppearance.Aniper.TitleSmall" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_sm</item>
+        <item name="android:fontFamily">@font/fredoka</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
-    <!-- Body - Large -->
+    <!-- Body - Large (Quicksand Regular, 16sp) -->
     <style name="TextAppearance.Aniper.BodyLarge" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/text_body_lg</item>
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:lineSpacingExtra">2sp</item>
     </style>
 
-    <!-- Body - Medium -->
+    <!-- Body - Medium (Quicksand Regular, 14sp) -->
     <style name="TextAppearance.Aniper.BodyMedium" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/text_body_md</item>
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:lineSpacingExtra">2sp</item>
     </style>
 
-    <!-- Body - Small -->
+    <!-- Body - Small (Quicksand Regular, 12sp) -->
     <style name="TextAppearance.Aniper.BodySmall" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/on_surface_secondary</item>
     </style>
 
-    <!-- Label - Medium -->
+    <!-- Label - Medium (Fredoka Bold, 12sp) -->
     <style name="TextAppearance.Aniper.LabelMedium" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/text_label_md</item>
+        <item name="android:fontFamily">@font/fredoka</item>
         <item name="android:textColor">@color/on_surface_secondary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">0.02</item>
     </style>
 
-    <!-- Caption - For supplementary text -->
+    <!-- Caption - For supplementary text (Quicksand Regular, 12sp) -->
     <style name="TextAppearance.Aniper.Caption" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/on_surface_tertiary</item>
     </style>
 </resources>
