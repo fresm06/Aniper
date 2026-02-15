@@ -28,12 +28,14 @@ class TrashBinView(
     private val size = 80  // 80dp
     private val density = context.resources.displayMetrics.density
     private val sizePx = (size * density).toInt()
+    private val padding = (sizePx * 0.25).toInt()  // 패딩으로 여유 공간 확보
+    private val wmSizePx = sizePx + (padding * 2)  // 윈도우 크기는 더 크게
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
 
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        sizePx,
-        sizePx,
+        wmSizePx,
+        wmSizePx,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
@@ -50,6 +52,8 @@ class TrashBinView(
         clipChildren = false
         clipToPadding = false
 
+        // 패딩으로 여유 공간 확보 (배경은 padding 내 영역에만 표시)
+        setPadding(padding, padding, padding, padding)
         setBackgroundResource(R.drawable.trash_bin_background)
 
         imageView = ImageView(context).apply {
