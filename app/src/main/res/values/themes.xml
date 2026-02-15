@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Main Theme - Cute & Soft High-end -->
     <style name="Theme.Aniper" parent="Theme.Material3.Light.NoActionBar">
         <!-- Material 3 Colors -->
         <item name="colorPrimary">@color/primary</item>
@@ -26,70 +27,158 @@
         <!-- Button Styles -->
         <item name="materialButtonStyle">@style/Widget.Aniper.Button</item>
         <item name="borderlessButtonStyle">@style/Widget.Aniper.Button.TextButton</item>
+        <item name="textInputStyle">@style/Widget.Aniper.TextInputLayout</item>
     </style>
 
-    <!-- Custom Button Style - Soft & Rounded -->
+    <!-- ============ BUTTON STYLES ============ -->
+    <!-- Primary Button - Cute & Soft -->
     <style name="Widget.Aniper.Button" parent="Widget.MaterialComponents.Button">
         <item name="cornerRadius">@dimen/corner_radius_lg</item>
         <item name="android:textSize">@dimen/text_body_sm</item>
         <item name="android:textStyle">bold</item>
-        <item name="elevation">@dimen/elevation_md</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="elevation">@dimen/elevation_sm</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingStart">@dimen/spacing_lg</item>
+        <item name="android:paddingEnd">@dimen/spacing_lg</item>
     </style>
 
+    <!-- Text Button - Borderless -->
     <style name="Widget.Aniper.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="cornerRadius">@dimen/corner_radius_lg</item>
         <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
     </style>
 
-    <!-- Card Style - Glassmorphism -->
+    <!-- Outlined Button -->
+    <style name="Widget.Aniper.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/corner_radius_lg</item>
+        <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="borderWidth">@dimen/stroke_width</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <!-- ============ CARD STYLES ============ -->
+    <!-- Card Style - Soft Elevation & Rounded -->
     <style name="Widget.Aniper.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cornerRadius">@dimen/corner_radius_lg</item>
-        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardElevation">@dimen/elevation_sm</item>
         <item name="cardBackgroundColor">@color/surface</item>
     </style>
 
-    <!-- Text Styles -->
+    <!-- Card Style - Elevated (for featured content) -->
+    <style name="Widget.Aniper.CardView.Elevated" parent="Widget.Aniper.CardView">
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <!-- Pet Card - Special styling -->
+    <style name="Widget.Aniper.PetCard" parent="Widget.Aniper.CardView.Elevated">
+        <item name="android:minHeight">@dimen/card_min_height</item>
+        <item name="cardBackgroundColor">@color/surface_bright</item>
+    </style>
+
+    <!-- ============ TEXT INPUT STYLES ============ -->
+    <style name="Widget.Aniper.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_md</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_md</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_md</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_md</item>
+        <item name="boxStrokeColor">@color/surface_variant</item>
+        <item name="android:textColorHint">@color/on_surface_tertiary</item>
+    </style>
+
+    <!-- ============ TEXT STYLES ============ -->
+    <!-- Display - Large heading -->
     <style name="TextAppearance.Aniper.DisplaySmall" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textSize">@dimen/text_display_sm</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
+        <item name="android:letterSpacing">-0.01</item>
     </style>
 
+    <!-- Title - Large -->
     <style name="TextAppearance.Aniper.TitleLarge" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_lg</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
+        <item name="android:letterSpacing">-0.005</item>
     </style>
 
+    <!-- Title - Medium -->
     <style name="TextAppearance.Aniper.TitleMedium" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_md</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
+    <!-- Title - Small -->
     <style name="TextAppearance.Aniper.TitleSmall" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_sm</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/on_surface</item>
     </style>
 
+    <!-- Body - Large -->
     <style name="TextAppearance.Aniper.BodyLarge" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/text_body_lg</item>
         <item name="android:textColor">@color/on_surface</item>
+        <item name="android:lineSpacingExtra">2sp</item>
     </style>
 
+    <!-- Body - Medium -->
     <style name="TextAppearance.Aniper.BodyMedium" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/text_body_md</item>
         <item name="android:textColor">@color/on_surface</item>
+        <item name="android:lineSpacingExtra">2sp</item>
     </style>
 
+    <!-- Body - Small -->
     <style name="TextAppearance.Aniper.BodySmall" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">@dimen/text_body_sm</item>
         <item name="android:textColor">@color/on_surface_secondary</item>
     </style>
 
+    <!-- Label - Medium -->
     <style name="TextAppearance.Aniper.LabelMedium" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/text_label_md</item>
         <item name="android:textColor">@color/on_surface_secondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Caption - For supplementary text -->
+    <style name="TextAppearance.Aniper.Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:textColor">@color/on_surface_tertiary</item>
+    </style>
+
+    <!-- ============ FAB STYLES ============ -->
+    <!-- Floating Action Button -->
+    <style name="Widget.Aniper.FAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="elevation">@dimen/elevation_lg</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Aniper.Large</item>
+    </style>
+
+    <!-- ============ SHAPE APPEARANCE ============ -->
+    <!-- Large rounded corners for cards and dialogs -->
+    <style name="ShapeAppearance.Aniper.Large" parent="ShapeAppearance.Material3.Large">
+        <item name="cornerSize">@dimen/corner_radius_lg</item>
+    </style>
+
+    <!-- Medium rounded corners -->
+    <style name="ShapeAppearance.Aniper.Medium" parent="ShapeAppearance.Material3.Medium">
+        <item name="cornerSize">@dimen/corner_radius_md</item>
+    </style>
+
+    <!-- ============ DECORATIVE STYLES ============ -->
+    <!-- Divider line -->
+    <style name="Widget.Aniper.Divider">
+        <item name="android:layout_height">@dimen/divider_height</item>
+        <item name="android:background">@color/surface_variant</item>
     </style>
 </resources>

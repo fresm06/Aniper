@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing System (모든 spacing은 8dp 기반) -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <!-- Corner Radius System (귀여운 라운드 코너) -->
+    <dimen name="corner_radius_sm">12dp</dimen>
+    <dimen name="corner_radius_md">20dp</dimen>
+    <dimen name="corner_radius_lg">28dp</dimen>
+    <dimen name="corner_radius_xl">36dp</dimen>
+    <dimen name="corner_radius_full">50dp</dimen>
+
+    <!-- Elevation & Shadow -->
+    <dimen name="elevation_sm">2dp</dimen>
+    <dimen name="elevation_md">4dp</dimen>
+    <dimen name="elevation_lg">8dp</dimen>
+    <dimen name="card_elevation">6dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_display_sm">32sp</dimen>
+    <dimen name="text_title_lg">24sp</dimen>
+    <dimen name="text_title_md">20sp</dimen>
+    <dimen name="text_title_sm">18sp</dimen>
+    <dimen name="text_body_lg">16sp</dimen>
+    <dimen name="text_body_md">14sp</dimen>
+    <dimen name="text_body_sm">12sp</dimen>
+    <dimen name="text_label_md">12sp</dimen>
+
+    <!-- Button & Component Sizes -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_sm">40dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="icon_size_sm">20dp</dimen>
+    <dimen name="icon_size_md">24dp</dimen>
+    <dimen name="icon_size_lg">32dp</dimen>
+
+    <!-- Card & Container -->
+    <dimen name="card_min_height">120dp</dimen>
+    <dimen name="logo_size">140dp</dimen>
+
+    <!-- Divider & Stroke -->
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="stroke_width">1.5dp</dimen>
+</resources>

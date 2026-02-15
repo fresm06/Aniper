@@ -6,41 +6,49 @@
     android:layout_height="match_parent"
     android:background="?attr/android:colorBackground">
 
-    <!-- Top Decorative Element -->
+    <!-- Top Decorative Element - Soft Gradient Circle -->
     <View
         android:id="@+id/view_top_decoration"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@color/primary_container"
-        android:alpha="0.3"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:background="@drawable/bg_gradient_circle_pink"
+        android:alpha="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:translationX="-100dp"
-        android:translationY="-100dp" />
+        android:translationX="-140dp"
+        android:translationY="-140dp" />
 
-    <!-- Logo Card -->
+    <!-- Logo Card - Elevated with Soft Shadow -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_logo"
         android:layout_width="@dimen/logo_size"
         android:layout_height="@dimen/logo_size"
         android:layout_margin="@dimen/spacing_lg"
-        app:cardCornerRadius="@dimen/corner_radius_xl"
-        app:cardElevation="@dimen/card_elevation"
-        app:cardBackgroundColor="@color/primary_container"
+        app:cardCornerRadius="@dimen/corner_radius_full"
+        app:cardElevation="@dimen/elevation_lg"
+        app:cardBackgroundColor="@color/primary_light"
+        app:strokeColor="@color/primary_lighter"
+        app:strokeWidth="@dimen/stroke_width"
         app:layout_constraintBottom_toTopOf="@id/tv_app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
 
-        <ImageView
-            android:id="@+id/iv_logo"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_pet_placeholder"
-            android:contentDescription="Aniper Logo"
-            android:scaleType="centerInside"
-            android:padding="@dimen/spacing_md" />
+            android:padding="@dimen/spacing_md">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_pet_placeholder"
+                android:contentDescription="Aniper Logo"
+                android:scaleType="centerInside" />
+
+        </FrameLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -49,12 +57,12 @@
         android:id="@+id/tv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_xxl"
+        android:layout_marginTop="@dimen/spacing_xl"
         android:text="@string/app_name"
         android:textSize="@dimen/text_display_sm"
         android:textStyle="bold"
         android:textColor="@color/primary"
-        android:letterSpacing="0.02"
+        android:letterSpacing="0.01"
         app:layout_constraintBottom_toTopOf="@id/tv_tagline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,35 +86,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
-    <!-- Sign In Button -->
+    <!-- Sign In Button - Soft & Elevated -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_google_sign_in"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="@dimen/spacing_lg"
         android:layout_marginEnd="@dimen/spacing_lg"
-        android:layout_marginBottom="@dimen/spacing_xxl"
+        android:layout_marginBottom="@dimen/spacing_xl"
         android:text="@string/sign_in_with_google"
         android:textSize="@dimen/text_body_sm"
         android:textStyle="bold"
-        android:letterSpacing="0.01"
+        android:textColor="@color/white"
+        android:letterSpacing="0.005"
         app:cornerRadius="@dimen/corner_radius_lg"
         app:icon="@drawable/ic_google"
         app:iconGravity="textStart"
         app:elevation="@dimen/elevation_md"
+        app:backgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Bottom Decorative Element -->
+    <!-- Bottom Decorative Element - Lavender Accent -->
     <View
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@color/secondary_container"
-        android:alpha="0.2"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_gradient_circle_lavender"
+        android:alpha="0.20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:translationX="75dp"
-        android:translationY="75dp" />
+        android:translationX="110dp"
+        android:translationY="110dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
