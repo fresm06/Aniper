@@ -28,14 +28,13 @@ class TrashBinView(
     private val size = 80  // 80dp
     private val density = context.resources.displayMetrics.density
     private val sizePx = (size * density).toInt()
-    private val padding = (sizePx * 0.25).toInt()  // 패딩으로 여유 공간 확보
-    private val wmSizePx = sizePx + (padding * 2)  // 윈도우 크기는 더 크게
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
+    private var containerView: FrameLayout? = null
 
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
-        wmSizePx,
-        wmSizePx,
+        sizePx,
+        sizePx,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
@@ -47,13 +46,42 @@ class TrashBinView(
         y = 100  // 100px above bottom
     }
 
+    fun getContainerParams(): WindowManager.LayoutParams {
+        val containerSizePx = (120 * density).toInt()
+        return WindowManager.LayoutParams(
+            containerSizePx,
+            containerSizePx,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            PixelFormat.TRANSLUCENT
+        ).apply {
+            gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
+            x = 0
+            y = 100
+        }
+    }
+
+    fun getContainer(): FrameLayout {
+        if (containerView == null) {
+            containerView = FrameLayout(context).apply {
+                clipChildren = false
+                addView(this@TrashBinView, FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    Gravity.CENTER
+                ))
+            }
+        }
+        return containerView!!
+    }
+
     init {
         // Allow children to render outside parent bounds for scale animations
         clipChildren = false
         clipToPadding = false
 
-        // 패딩으로 여유 공간 확보 (배경은 padding 내 영역에만 표시)
-        setPadding(padding, padding, padding, padding)
         setBackgroundResource(R.drawable.trash_bin_background)
 
         imageView = ImageView(context).apply {
