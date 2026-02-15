@@ -66,8 +66,8 @@ class TrashBinView(
     fun startPulseAnimation() {
         stopPulseAnimation()
 
-        val scaleX = ObjectAnimator.ofFloat(this, "scaleX", 1f, 1.1f, 1f)
-        val scaleY = ObjectAnimator.ofFloat(this, "scaleY", 1f, 1.1f, 1f)
+        val scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 1.1f, 1f)
+        val scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 1.1f, 1f)
 
         scaleX.duration = 600
         scaleY.duration = 600
@@ -85,8 +85,8 @@ class TrashBinView(
     fun stopPulseAnimation() {
         pulseAnimatorSet?.cancel()
         pulseAnimatorSet = null
-        scaleX = 1f
-        scaleY = 1f
+        imageView.scaleX = 1f
+        imageView.scaleY = 1f
     }
 
     fun highlightForCollision() {
@@ -131,14 +131,14 @@ class TrashBinView(
 
     fun slideIn(onComplete: () -> Unit = {}) {
         stopPulseAnimation()
-        scaleX = 0.3f
-        scaleY = 0.3f
+        imageView.scaleX = 0.3f
+        imageView.scaleY = 0.3f
         alpha = 0f
         translationY = 100f
 
         AnimatorSet().apply {
-            val scaleXAnim = ObjectAnimator.ofFloat(this@TrashBinView, "scaleX", 0.3f, 1f)
-            val scaleYAnim = ObjectAnimator.ofFloat(this@TrashBinView, "scaleY", 0.3f, 1f)
+            val scaleXAnim = ObjectAnimator.ofFloat(imageView, "scaleX", 0.3f, 1f)
+            val scaleYAnim = ObjectAnimator.ofFloat(imageView, "scaleY", 0.3f, 1f)
             val alphaAnim = ObjectAnimator.ofFloat(this@TrashBinView, "alpha", 0f, 1f)
             val transYAnim = ObjectAnimator.ofFloat(this@TrashBinView, "translationY", 100f, 0f)
 
@@ -163,8 +163,8 @@ class TrashBinView(
         isHighlighted = false
 
         AnimatorSet().apply {
-            val scaleX = ObjectAnimator.ofFloat(this@TrashBinView, "scaleX", 1f, 0.3f)
-            val scaleY = ObjectAnimator.ofFloat(this@TrashBinView, "scaleY", 1f, 0.3f)
+            val scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 0.3f)
+            val scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 0.3f)
             val alpha = ObjectAnimator.ofFloat(this@TrashBinView, "alpha", 1f, 0f)
             val transY = ObjectAnimator.ofFloat(this@TrashBinView, "translationY", 0f, 100f)
 
