@@ -45,4 +45,7 @@
     <!-- Overlay -->
     <string name="overlay_notification_title">Aniper</string>
     <string name="overlay_notification_text">Your pet is active!</string>
+
+    <!-- Wallpaper -->
+    <string name="wallpaper_description">Cute pets on your home screen wallpaper</string>
 </resources>

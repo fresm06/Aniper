@@ -16,7 +16,8 @@
       "Bash(git rm:*)",
       "Bash(find:*)",
       "Bash(~/.gradle/wrapper/dists/gradle-8.4-bin/1w5dpkrfk8irigvoxmyhowfim/gradle-8.4/bin/gradle:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(/d/aniper/app/src/main/java/com/aniper/wallpaper/PetWallpaperService.kt:*)"
     ]
   }
 }
