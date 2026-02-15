@@ -60,7 +60,7 @@ class TrashBinView(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT
             )
-            scaleType = ImageView.ScaleType.CENTER_INSIDE
+            scaleType = ImageView.ScaleType.FIT_CENTER
             setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_trash_bin))
         }
         addView(imageView)
