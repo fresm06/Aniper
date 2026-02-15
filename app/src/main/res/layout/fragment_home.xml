@@ -158,8 +158,7 @@
             android:src="@drawable/ic_settings"
             app:backgroundTint="@color/secondary"
             app:tint="@color/white"
-            app:elevation="@dimen/elevation_lg"
-            app:shapeAppearance="@style/ShapeAppearance.Aniper.Large" />
+            app:elevation="@dimen/elevation_lg" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_stop_overlay"
@@ -169,8 +168,7 @@
             android:src="@drawable/ic_stop"
             app:backgroundTint="@color/error_light"
             app:tint="@color/white"
-            app:elevation="@dimen/elevation_lg"
-            app:shapeAppearance="@style/ShapeAppearance.Aniper.Large" />
+            app:elevation="@dimen/elevation_lg" />
 
     </LinearLayout>
 

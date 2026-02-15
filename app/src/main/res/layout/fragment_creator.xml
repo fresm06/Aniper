@@ -65,7 +65,7 @@
                 android:paddingEnd="@dimen/spacing_md"
                 android:paddingTop="@dimen/spacing_sm"
                 android:paddingBottom="@dimen/spacing_sm"
-                style="@style/Widget.Aniper.TextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxBackgroundColor="@color/primary_lighter">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -96,7 +96,7 @@
                 android:paddingEnd="@dimen/spacing_md"
                 android:paddingTop="@dimen/spacing_sm"
                 android:paddingBottom="@dimen/spacing_sm"
-                style="@style/Widget.Aniper.TextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxBackgroundColor="@color/secondary_light">
 
                 <com.google.android.material.textfield.TextInputEditText
