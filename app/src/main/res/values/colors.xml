@@ -63,4 +63,9 @@
     <color name="gradient_lavender_end">#D4C5E2</color>
     <color name="gradient_mint_start">#D4F0EB</color>
     <color name="gradient_mint_end">#C8E6E0</color>
+
+    <!-- Accent Colors for UI Enhancement -->
+    <color name="accent_coral">#FFB4A2</color>
+    <color name="accent_sky">#B4E4FF</color>
+    <color name="accent_lime">#E8FFB7</color>
 </resources>

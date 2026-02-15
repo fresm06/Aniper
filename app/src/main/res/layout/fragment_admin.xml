@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Header with Accent -->
+    <!-- Header with Wave Background -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_admin"
         android:layout_width="0dp"
@@ -13,37 +13,38 @@
         android:paddingStart="@dimen/spacing_lg"
         android:paddingEnd="@dimen/spacing_lg"
         android:paddingTop="@dimen/spacing_xl"
-        android:paddingBottom="@dimen/spacing_md"
-        android:background="?attr/android:colorBackground"
+        android:paddingBottom="@dimen/spacing_lg"
+        android:background="@drawable/bg_wave_admin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <View
-            android:id="@+id/accent_line"
-            android:layout_width="48dp"
-            android:layout_height="4dp"
-            android:background="@color/warning"
-            android:alpha="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_admin_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_md"
             android:text="@string/admin_panel"
             android:textSize="@dimen/text_title_lg"
             android:textStyle="bold"
             android:textColor="?attr/colorOnSurface"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/accent_line" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Pending Count Badge -->
+        <View
+            android:id="@+id/badge_pending_count"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_count_badge"
+            app:layout_constraintStart_toEndOf="@id/tv_admin_title"
+            app:layout_constraintTop_toTopOf="@id/tv_admin_title"
+            android:layout_marginStart="-12dp"
+            android:layout_marginTop="-8dp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_marginTop="@dimen/spacing_md"
             android:text="신청된 캐릭터를 관리하세요 📋"
             android:textSize="@dimen/text_body_sm"
             android:textColor="?attr/colorOnSurface"

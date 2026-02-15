@@ -20,14 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="@dimen/spacing_lg">
-
-            <View
-                android:layout_width="40dp"
-                android:layout_height="4dp"
-                android:background="@color/secondary"
-                android:alpha="0.6"
-                android:layout_marginBottom="@dimen/spacing_md" />
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,111 +42,95 @@
 
         </LinearLayout>
 
-        <!-- Name Input Card -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- Large Circular Preview Area -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/spacing_xl"
+            android:background="@drawable/bg_preview_circle">
+
+            <ImageView
+                android:id="@+id/iv_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_pet_placeholder"
+                android:contentDescription="Character preview" />
+
+        </FrameLayout>
+
+        <!-- Name Input - Minimal Style -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_md"
-            app:cardCornerRadius="@dimen/corner_radius_md"
-            app:cardElevation="@dimen/elevation_sm"
-            app:cardBackgroundColor="@color/primary_lighter">
+            android:hint="@string/character_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_character_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/character_name"
-                android:paddingStart="@dimen/spacing_md"
-                android:paddingEnd="@dimen/spacing_md"
-                android:paddingTop="@dimen/spacing_sm"
-                android:paddingBottom="@dimen/spacing_sm"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/primary_lighter">
+                android:inputType="text"
+                android:maxLength="30"
+                android:textSize="@dimen/text_body_md" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_character_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLength="30"
-                    android:textSize="@dimen/text_body_md" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Description Input Card -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- Description Input - Minimal Style -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_lg"
-            app:cardCornerRadius="@dimen/corner_radius_md"
-            app:cardElevation="@dimen/elevation_sm"
-            app:cardBackgroundColor="@color/secondary_light">
+            android:hint="@string/character_description"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_character_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/character_description"
-                android:paddingStart="@dimen/spacing_md"
-                android:paddingEnd="@dimen/spacing_md"
-                android:paddingTop="@dimen/spacing_sm"
-                android:paddingBottom="@dimen/spacing_sm"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxBackgroundColor="@color/secondary_light">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_character_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:maxLines="3"
-                    android:maxLength="200"
-                    android:minHeight="80dp"
-                    android:textSize="@dimen/text_body_md"
-                    android:gravity="top|start" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:maxLength="200"
+                android:minHeight="80dp"
+                android:textSize="@dimen/text_body_md"
+                android:gravity="top|start" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Asset States Section -->
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_md"
+            android:text="@string/asset_states"
+            android:textSize="@dimen/text_title_sm"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/spacing_lg"
-            android:layout_marginBottom="@dimen/spacing_md">
+            android:layout_marginBottom="@dimen/spacing_md"
+            android:text="@string/asset_states_hint"
+            android:textSize="@dimen/text_body_sm"
+            android:textColor="?android:textColorSecondary"
+            android:lineSpacingExtra="2sp" />
 
-            <View
-                android:layout_width="40dp"
-                android:layout_height="4dp"
-                android:background="@color/tertiary"
-                android:alpha="0.6"
-                android:layout_marginBottom="@dimen/spacing_md" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/asset_states"
-                android:textSize="@dimen/text_title_sm"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnSurface" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xs"
-                android:text="@string/asset_states_hint"
-                android:textSize="@dimen/text_body_sm"
-                android:textColor="?android:textColorSecondary"
-                android:lineSpacingExtra="2sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/asset_slots_container"
+        <!-- Asset Slots - Horizontal Scroll -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
-            android:orientation="vertical" />
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/asset_slots_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="false" />
+
+        </HorizontalScrollView>
 
         <!-- Action Buttons -->
         <LinearLayout

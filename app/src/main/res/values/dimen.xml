@@ -50,4 +50,9 @@
     <!-- Divider & Stroke -->
     <dimen name="divider_height">1dp</dimen>
     <dimen name="stroke_width">1.5dp</dimen>
+
+    <!-- Asymmetric Corner Radius -->
+    <dimen name="corner_radius_asymmetric_large">32dp</dimen>
+    <dimen name="corner_radius_asymmetric_small">8dp</dimen>
+    <dimen name="spacing_offset">8dp</dimen>
 </resources>

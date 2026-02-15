@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_md"
-    app:cardCornerRadius="@dimen/corner_radius_lg"
-    app:cardElevation="@dimen/elevation_md"
-    app:cardBackgroundColor="@color/surface_bright"
-    app:strokeColor="@color/tertiary_light"
-    app:strokeWidth="@dimen/stroke_width">
+    android:layout_margin="@dimen/spacing_md">
+
+    <!-- Asymmetric Card Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_asymmetric_card"
+        android:elevation="6dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/surface_bright">
+        android:background="@android:color/transparent">
 
         <!-- Market Item Thumbnail -->
         <FrameLayout
@@ -31,17 +33,13 @@
                 android:contentDescription="Market item thumbnail"
                 android:background="@color/tertiary_light" />
 
-            <!-- Popular Badge -->
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <!-- Popular Badge - Star Shape -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="top|end"
                 android:layout_margin="@dimen/spacing_md"
-                android:text="⭐ Popular"
-                android:textSize="@dimen/text_label_md"
-                app:chipBackgroundColor="@color/gold_soft"
-                app:chipStrokeColor="@color/gold_soft"
-                android:textColor="@color/on_surface" />
+                android:background="@drawable/bg_star_badge" />
 
         </FrameLayout>
 
@@ -104,4 +102,5 @@
         </LinearLayout>
 
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

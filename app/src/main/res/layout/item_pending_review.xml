@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_sm"
-    app:cardCornerRadius="@dimen/corner_radius_md"
-    app:cardElevation="@dimen/card_elevation"
-    app:strokeColor="?attr/colorSurfaceVariant"
-    app:strokeWidth="1dp">
+    android:layout_margin="@dimen/spacing_md">
+
+    <!-- Asymmetric Card Background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_asymmetric_card"
+        android:elevation="6dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +19,7 @@
         android:orientation="horizontal"
         android:padding="@dimen/spacing_md"
         android:gravity="center_vertical"
-        android:background="?attr/colorSurface">
+        android:background="@android:color/transparent">
 
         <ImageView
             android:id="@+id/iv_pending_thumbnail"
@@ -80,4 +83,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

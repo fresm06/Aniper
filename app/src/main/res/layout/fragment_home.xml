@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/android:colorBackground">
 
-    <!-- Header Section - Enhanced with Soft Accent -->
+    <!-- Header Section - Wave Design with Floating Aesthetic -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_section"
         android:layout_width="0dp"
@@ -14,32 +14,22 @@
         android:paddingStart="@dimen/spacing_lg"
         android:paddingEnd="@dimen/spacing_lg"
         android:paddingTop="@dimen/spacing_xl"
-        android:paddingBottom="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_lg"
+        android:background="@drawable/bg_wave_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <!-- Decorative Accent -->
-        <View
-            android:id="@+id/accent_bar"
-            android:layout_width="48dp"
-            android:layout_height="4dp"
-            android:background="@color/primary"
-            android:alpha="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_home_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_md"
             android:text="@string/my_pets"
             android:textSize="@dimen/text_title_lg"
             android:textStyle="bold"
             android:textColor="@color/on_surface"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/accent_bar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_subtitle"
@@ -139,26 +129,33 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- FAB Group - Soft & Elegant -->
+    <!-- FAB Group - Floating Action Bar at Bottom Center & Corner -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginEnd="@dimen/spacing_lg"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginBottom="@dimen/spacing_xl"
+        android:background="@drawable/bg_floating_action_bar"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_sm"
+        android:paddingBottom="@dimen/spacing_sm"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_md"
+            android:layout_marginEnd="@dimen/spacing_md"
             android:contentDescription="@string/settings"
             android:src="@drawable/ic_settings"
             app:backgroundTint="@color/secondary"
             app:tint="@color/white"
-            app:elevation="@dimen/elevation_lg" />
+            app:elevation="@dimen/elevation_lg"
+            app:fabSize="mini" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_stop_overlay"
@@ -168,7 +165,8 @@
             android:src="@drawable/ic_stop"
             app:backgroundTint="@color/error_light"
             app:tint="@color/white"
-            app:elevation="@dimen/elevation_lg" />
+            app:elevation="@dimen/elevation_lg"
+            app:fabSize="mini" />
 
     </LinearLayout>
 

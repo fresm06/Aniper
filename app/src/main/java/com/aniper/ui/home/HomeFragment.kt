@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aniper.MainActivity
 import com.aniper.R
@@ -39,7 +39,8 @@ class HomeFragment : Fragment() {
 
         val pets = LocalPetData.samplePets
 
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = PetAdapter(pets) { pet -> onPetClicked(pet) }
 
         emptyView.visibility = if (pets.isEmpty()) View.VISIBLE else View.GONE
@@ -100,6 +101,11 @@ class HomeFragment : Fragment() {
             holder.thumbnail.setImageDrawable(
                 ContextCompat.getDrawable(holder.itemView.context, asset.idleRightRes)
             )
+
+            // Apply subtle rotation to cards for organic feel
+            val rotation = (position % 2) * -2f + 1f // Alternating -2 to 1 degrees
+            holder.itemView.rotation = rotation
+
             holder.itemView.setOnClickListener { onClick(pet) }
         }
 
