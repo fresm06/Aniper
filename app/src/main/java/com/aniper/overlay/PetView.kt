@@ -126,11 +126,14 @@ class PetView(
 
             if (!physicsEngine.isInAir()) return
 
+            // groundY를 WindowManager 좌표계로 변환 (animationPadding 제거)
+            val groundYInWmParams = groundY - animationPadding
+
             val result = physicsEngine.update(
                 dt,
                 wmParams.x.toFloat(),
                 wmParams.y.toFloat(),
-                groundY,
+                groundYInWmParams,
                 (screenWidth - petSize).coerceAtLeast(0)
             )
 

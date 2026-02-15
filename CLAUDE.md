@@ -180,13 +180,6 @@ app/
 - **Core Feature:** Android WallpaperService (Live Wallpaper), System Overlay (Interaction Layer)
 - **Animation:** Rive or PNG Sequence (Frame-by-frame)
 
-## 🎨 UI/UX Design Principles (IMPORTANT)
-- **Concept:** 'Cute, Soft, High-end' (핀터레스트/에어비앤비 스타일)
-- **Shapes:** 모든 카드와 버튼은 둥근 모서리(CornerRadius: 24dp 이상) 적용.
-- **Colors:** 파스텔 톤 배경과 화이트 레이아웃 사용.
-- **Animations:** - 버튼 클릭 시 Scale(0.95f) 효과 필수.
-  - 리스트 진입 시 부드러운 Fade-in 및 Slide-up 적용.
-- **Visuals:** 은은한 그림자(Soft Shadow)와 반투명 유리 느낌(Glassmorphism) 활용.
 
 ## ⚡ Efficiency Rules for AI (Token Saving)
 1. **No Full Code:** 전체 파일을 다시 작성하지 마라. 수정되거나 추가된 함수/클래스 단위로만 출력하라.
