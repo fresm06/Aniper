@@ -3,18 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
-    <!-- Header - Admin Style (Navy/Red Gradient) -->
+    <!-- Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_admin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/spacing_lg"
-        android:paddingEnd="@dimen/spacing_lg"
-        android:paddingTop="@dimen/spacing_xl"
-        android:paddingBottom="@dimen/spacing_lg"
-        android:background="@drawable/bg_admin_header"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="24dp"
+        android:background="@drawable/bg_header_gradient_error"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,30 +25,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/admin_panel"
-            android:textSize="@dimen/text_title_lg"
+            android:textSize="32sp"
             android:textStyle="bold"
             android:fontFamily="@font/fredoka"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Pending Count Badge -->
-        <View
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/badge_pending_count"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/bg_count_badge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/secondary"
+            app:cardElevation="4dp"
             app:layout_constraintStart_toEndOf="@id/tv_admin_title"
             app:layout_constraintTop_toTopOf="@id/tv_admin_title"
             android:layout_marginStart="-12dp"
-            android:layout_marginTop="-8dp" />
+            android:layout_marginTop="-8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="!"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_secondary"
+                android:gravity="center"
+                android:fontFamily="@font/fredoka" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_md"
+            android:layout_marginTop="12dp"
             android:text="신청된 캐릭터를 관리하세요 📋"
-            android:textSize="@dimen/text_body_sm"
+            android:textSize="14sp"
             android:fontFamily="@font/quicksand"
             android:textColor="@color/white"
             android:alpha="0.9"
@@ -71,11 +85,13 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_lg"
-            android:layout_marginEnd="@dimen/spacing_lg"
-            app:cardCornerRadius="@dimen/corner_radius_lg"
-            app:cardElevation="@dimen/card_elevation"
-            app:cardBackgroundColor="@color/error_container"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/surface"
+            app:strokeColor="@color/error"
+            app:strokeWidth="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -86,30 +102,32 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="@dimen/spacing_xl">
+                android:padding="40dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="🔒"
-                    android:textSize="48sp"
+                    android:textSize="56sp"
                     android:gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:layout_marginTop="20dp"
                     android:text="@string/access_denied"
-                    android:textSize="@dimen/text_body_lg"
+                    android:textSize="18sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/fredoka"
                     android:textColor="@color/on_surface" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:layout_marginTop="8dp"
                     android:text="@string/admin_only"
-                    android:textSize="@dimen/text_body_sm"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="@color/on_surface_secondary" />
 
             </LinearLayout>
@@ -133,10 +151,10 @@
         android:id="@+id/rv_pending"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingStart="@dimen/spacing_md"
-        android:paddingEnd="@dimen/spacing_md"
-        android:paddingTop="@dimen/spacing_md"
-        android:paddingBottom="@dimen/spacing_xl"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,18 +162,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_admin" />
 
-    <TextView
-        android:id="@+id/tv_admin_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_pending_items"
-        android:textSize="@dimen/text_body_md"
-        android:textColor="?android:textColorSecondary"
-        android:gravity="center"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/empty_state"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/header_admin">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/surface"
+            app:strokeColor="@color/success"
+            app:strokeWidth="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✅"
+                    android:textSize="56sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_admin_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/no_pending_items"
+                    android:textSize="18sp"
+                    android:textColor="@color/on_surface"
+                    android:gravity="center"
+                    android:fontFamily="@font/fredoka"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

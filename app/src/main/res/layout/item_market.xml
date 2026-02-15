@@ -1,45 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_md">
-
-    <!-- Tamagotchi Card Background -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_tamagotchi_card"
-        android:elevation="6dp" />
+    android:layout_margin="8dp"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/surface"
+    app:strokeColor="@color/tertiary"
+    app:strokeWidth="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@android:color/transparent">
+        android:orientation="vertical">
 
-        <!-- Market Item Thumbnail -->
+        <!-- Market Item Thumbnail Container -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp">
+            android:layout_height="160dp"
+            android:background="@drawable/bg_pet_card_gradient">
 
             <ImageView
                 android:id="@+id/iv_market_thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:src="@drawable/ic_pet_placeholder"
                 android:contentDescription="Market item thumbnail"
-                android:background="@color/tertiary_light" />
+                android:padding="16dp" />
 
-            <!-- Popular Badge - Yellow Circle -->
-            <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+            <!-- Popular Badge -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="top|end"
-                android:layout_margin="@dimen/spacing_md"
-                android:background="@drawable/bg_pixel_badge_yellow" />
+                android:layout_margin="12dp"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="@color/secondary"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="⭐"
+                    android:textSize="24sp"
+                    android:gravity="center" />
+
+            </com.google.android.material.card.MaterialCardView>
 
         </FrameLayout>
 
@@ -48,16 +57,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_md">
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/tv_market_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_body_lg"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/fredoka"
-                android:textColor="?attr/colorOnSurface"
+                android:textColor="@color/on_surface"
                 android:maxLines="1"
                 android:ellipsize="end" />
 
@@ -65,11 +74,10 @@
                 android:id="@+id/tv_market_item_creator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xs"
-                android:textSize="@dimen/text_body_sm"
+                android:layout_marginTop="6dp"
+                android:textSize="13sp"
                 android:fontFamily="@font/quicksand"
-                android:textColor="?attr/colorOnSurface"
-                android:alpha="0.6"
+                android:textColor="@color/on_surface_secondary"
                 android:maxLines="1"
                 android:ellipsize="end" />
 
@@ -77,7 +85,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
@@ -86,7 +94,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/text_label_md"
+                    android:textSize="12sp"
                     android:fontFamily="@font/fredoka"
                     android:textColor="@color/primary"
                     android:textStyle="bold"
@@ -96,9 +104,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="💬"
-                    android:textSize="14sp"
-                    android:layout_marginStart="@dimen/spacing_sm" />
+                    android:text="💚"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp" />
 
             </LinearLayout>
 
@@ -106,4 +114,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</com.google.android.material.card.MaterialCardView>

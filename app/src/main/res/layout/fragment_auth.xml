@@ -4,164 +4,142 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/android:colorBackground">
+    android:background="@color/background">
 
-    <!-- Top Tamagotchi Header -->
+    <!-- Gradient Background -->
     <View
-        android:id="@+id/view_top_wave"
+        android:id="@+id/view_gradient_bg"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:background="@drawable/bg_tamagotchi_header"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_gradient_pastel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Floating Pet Silhouettes (decorative) -->
-    <View
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/bg_small_pet_silhouette"
-        android:alpha="0.15"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/spacing_lg"
-        android:layout_marginTop="@dimen/spacing_xl" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- Decorative Circles - Top Left -->
     <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/bg_decorative_bubble"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/shape_circle_soft_purple"
         android:alpha="0.2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="@dimen/spacing_md"
-        android:layout_marginTop="@dimen/spacing_md" />
-
-    <!-- Logo Card - Tamagotchi Style -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_logo"
-        android:layout_width="@dimen/logo_size"
-        android:layout_height="@dimen/logo_size"
-        android:layout_margin="@dimen/spacing_lg"
-        app:cardCornerRadius="@dimen/corner_radius_full"
-        app:cardElevation="@dimen/elevation_lg"
-        app:cardBackgroundColor="@color/surface"
-        app:strokeColor="@color/primary"
-        app:strokeWidth="@dimen/stroke_thick"
-        app:layout_constraintBottom_toTopOf="@id/tv_app_name"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="-40dp" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/spacing_md">
+    <!-- Decorative Circles - Bottom Right -->
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_circle_soft_yellow"
+        android:alpha="0.25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="-30dp"
+        android:layout_marginBottom="-30dp" />
 
-            <ImageView
-                android:id="@+id/iv_logo"
+    <!-- Main Content Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Logo Card - Cute Rounded Style -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_logo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:cardCornerRadius="90dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/surface"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="4dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_pet_placeholder"
-                android:contentDescription="Aniper Logo"
-                android:scaleType="centerInside" />
+                android:padding="24dp">
 
-        </FrameLayout>
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_pet_placeholder"
+                    android:contentDescription="Aniper Logo"
+                    android:scaleType="centerInside" />
 
-    </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
 
-    <!-- App Name - Fredoka Bold, Yellow -->
-    <TextView
-        android:id="@+id/tv_app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_xl"
-        android:text="@string/app_name"
-        android:textSize="@dimen/text_display_sm"
-        android:textStyle="bold"
-        android:fontFamily="@font/fredoka"
-        android:textColor="@color/secondary"
-        android:letterSpacing="0.01"
-        app:layout_constraintBottom_toTopOf="@id/tv_tagline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_logo" />
+        </com.google.android.material.card.MaterialCardView>
 
-    <!-- Tagline -->
-    <TextView
-        android:id="@+id/tv_tagline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_md"
-        android:layout_marginStart="@dimen/spacing_lg"
-        android:layout_marginEnd="@dimen/spacing_lg"
-        android:text="@string/tagline"
-        android:textSize="@dimen/text_body_md"
-        android:textColor="@color/on_surface_secondary"
-        android:gravity="center"
-        android:lineSpacingExtra="@dimen/spacing_xs"
-        app:layout_constraintBottom_toTopOf="@id/btn_google_sign_in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/app_name"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/fredoka"
+            android:textColor="@color/primary"
+            android:letterSpacing="0.02"
+            app:layout_constraintBottom_toTopOf="@id/tv_tagline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_logo" />
 
-    <!-- Sign In Button - Tamagotchi Yellow -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_google_sign_in"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginStart="@dimen/spacing_lg"
-        android:layout_marginEnd="@dimen/spacing_lg"
-        android:layout_marginBottom="@dimen/spacing_xxl"
-        android:text="@string/sign_in_with_google"
-        android:textSize="@dimen/text_body_sm"
-        android:textStyle="bold"
-        android:fontFamily="@font/fredoka"
-        android:textColor="@color/primary"
-        android:letterSpacing="0.005"
-        app:cornerRadius="@dimen/corner_radius_button"
-        app:icon="@drawable/ic_google"
-        app:iconGravity="textStart"
-        app:elevation="0dp"
-        app:backgroundTint="@color/secondary"
-        android:background="@drawable/bg_tamagotchi_button"
-        app:layout_constraintBottom_toTopOf="@id/view_bottom_bubbles"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tv_tagline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/tagline"
+            android:textSize="16sp"
+            android:textColor="@color/on_surface_secondary"
+            android:gravity="center"
+            android:fontFamily="@font/quicksand"
+            android:lineSpacingExtra="4dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_google_sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
-    <!-- Bottom Decorative Bubbles -->
-    <LinearLayout
-        android:id="@+id/view_bottom_bubbles"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/spacing_lg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Sign In Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_google_sign_in"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="48dp"
+            android:text="@string/sign_in_with_google"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/fredoka"
+            android:textColor="@color/on_secondary"
+            android:letterSpacing="0.005"
+            app:cornerRadius="28dp"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="textStart"
+            app:elevation="8dp"
+            app:backgroundTint="@color/secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <View
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/bg_decorative_bubble"
-            android:layout_marginEnd="@dimen/spacing_md"
-            android:alpha="0.25" />
-
-        <View
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/bg_decorative_bubble"
-            android:layout_marginEnd="@dimen/spacing_md"
-            android:alpha="0.15" />
-
-        <View
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@drawable/bg_decorative_bubble"
-            android:alpha="0.2" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
