@@ -166,8 +166,7 @@ class PetOverlayService : Service() {
 
         trashBinView = TrashBinView(this, windowManager, screenWidth).apply {
             try {
-                val container = getContainer()
-                windowManager.addView(container, getContainerParams())
+                windowManager.addView(this, wmParams)
                 slideIn()
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -184,7 +183,7 @@ class PetOverlayService : Service() {
             // Remove after animation completes
             Handler(Looper.getMainLooper()).postDelayed({
                 try {
-                    windowManager.removeView(it.getContainer())
+                    windowManager.removeView(it)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -258,12 +257,7 @@ class PetOverlayService : Service() {
         super.onDestroy()
         petViews.forEach { it.destroy() }
         petViews.clear()
-        trashBinView?.let {
-            try {
-                windowManager.removeView(it.getContainer())
-            } catch (_: Exception) {}
-            it.destroy()
-        }
+        trashBinView?.destroy()
         trashBinView = null
     }
 }

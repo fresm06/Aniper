@@ -30,7 +30,6 @@ class TrashBinView(
     private val sizePx = (size * density).toInt()
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
-    private var containerView: FrameLayout? = null
 
     val wmParams: WindowManager.LayoutParams = WindowManager.LayoutParams(
         sizePx,
@@ -44,37 +43,6 @@ class TrashBinView(
         gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
         x = 0
         y = 100  // 100px above bottom
-    }
-
-    fun getContainerParams(): WindowManager.LayoutParams {
-        val containerSizePx = (120 * density).toInt()
-        return WindowManager.LayoutParams(
-            containerSizePx,
-            containerSizePx,
-            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-            PixelFormat.TRANSLUCENT
-        ).apply {
-            gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-            x = 0
-            y = 100
-        }
-    }
-
-    fun getContainer(): FrameLayout {
-        if (containerView == null) {
-            containerView = FrameLayout(context).apply {
-                clipChildren = false
-                addView(this@TrashBinView, FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.MATCH_PARENT,
-                    FrameLayout.LayoutParams.MATCH_PARENT,
-                    Gravity.CENTER
-                ))
-            }
-        }
-        return containerView!!
     }
 
     init {
@@ -125,10 +93,10 @@ class TrashBinView(
         if (isHighlighted) return
         isHighlighted = true
 
-        // Animate to red and larger
+        // Animate icon only (not the button background)
         AnimatorSet().apply {
-            val scaleX = ObjectAnimator.ofFloat(this@TrashBinView, "scaleX", 1f, 1.3f)
-            val scaleY = ObjectAnimator.ofFloat(this@TrashBinView, "scaleY", 1f, 1.3f)
+            val scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 1f, 1.3f)
+            val scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 1f, 1.3f)
 
             scaleX.duration = 200
             scaleY.duration = 200
@@ -145,10 +113,10 @@ class TrashBinView(
         if (!isHighlighted) return
         isHighlighted = false
 
-        // Animate back to normal
+        // Animate icon back to normal (not the button background)
         AnimatorSet().apply {
-            val scaleX = ObjectAnimator.ofFloat(this@TrashBinView, "scaleX", 1.3f, 1f)
-            val scaleY = ObjectAnimator.ofFloat(this@TrashBinView, "scaleY", 1.3f, 1f)
+            val scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 1.3f, 1f)
+            val scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 1.3f, 1f)
 
             scaleX.duration = 200
             scaleY.duration = 200
