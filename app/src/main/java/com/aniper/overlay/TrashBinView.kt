@@ -28,8 +28,6 @@ class TrashBinView(
     private val size = 80  // 80dp
     private val density = context.resources.displayMetrics.density
     private val sizePx = (size * density).toInt()
-    // ImageView를 더 크게 만들어 스케일 애니메이션 여유 공간 확보
-    private val imageViewSizePx = (sizePx * 1.5).toInt()
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
 
@@ -54,14 +52,12 @@ class TrashBinView(
 
         setBackgroundResource(R.drawable.trash_bin_background)
 
-        // ImageView is larger than FrameLayout to support scale animations without clipping
         imageView = ImageView(context).apply {
             layoutParams = FrameLayout.LayoutParams(
-                imageViewSizePx,
-                imageViewSizePx,
-                Gravity.CENTER
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
             )
-            scaleType = ImageView.ScaleType.FIT_CENTER
+            scaleType = ImageView.ScaleType.CENTER_INSIDE
             setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_trash_bin))
         }
         addView(imageView)
