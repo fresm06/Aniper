@@ -28,8 +28,8 @@ class TrashBinView(
     private val size = 80  // 80dp
     private val density = context.resources.displayMetrics.density
     private val sizePx = (size * density).toInt()
-    private val scalePadding = (sizePx * 0.2).toInt()  // Extra space for 1.3x scale animation
-    private val wmSizePx = sizePx + (scalePadding * 2)  // Add padding on both sides
+    // 최대 1.3배 스케일을 고려하여 여유 공간 확보
+    private val wmSizePx = (sizePx * 1.5).toInt()
     private var isHighlighted = false
     private var pulseAnimatorSet: AnimatorSet? = null
 
@@ -52,11 +52,9 @@ class TrashBinView(
         clipChildren = false
         clipToPadding = false
 
-        // Add padding to center the image within the larger window manager size
-        setPadding(scalePadding, scalePadding, scalePadding, scalePadding)
-
         setBackgroundResource(R.drawable.trash_bin_background)
 
+        // ImageView fills entire FrameLayout to support scale animations
         imageView = ImageView(context).apply {
             layoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
