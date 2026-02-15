@@ -13,7 +13,10 @@
       "Bash(chmod:*)",
       "Bash(unzip:*)",
       "Bash(./gradle-8.5/bin/gradle:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(find:*)",
+      "Bash(~/.gradle/wrapper/dists/gradle-8.4-bin/1w5dpkrfk8irigvoxmyhowfim/gradle-8.4/bin/gradle:*)",
+      "Bash(git restore:*)"
     ]
   }
 }

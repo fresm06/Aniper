@@ -1,49 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Aniper" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Colors -->
+        <!-- Material 3 Colors -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryContainer">@color/primary_container</item>
         <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+        <item name="colorTertiary">@color/tertiary</item>
+        <item name="colorTertiaryContainer">@color/tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/on_tertiary_container</item>
+
+        <!-- Background and Surface -->
+        <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorSurfaceVariant">@color/surface_variant</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="colorOnSurface">@color/on_surface</item>
 
-        <!-- Status Bar Style -->
-        <item name="android:navigationBarColor">@color/surface</item>
+        <!-- Status & Navigation -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">true</item>
 
         <!-- Button Styles -->
-        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button</item>
-        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="materialButtonStyle">@style/Widget.Aniper.Button</item>
+        <item name="borderlessButtonStyle">@style/Widget.Aniper.Button.TextButton</item>
+    </style>
+
+    <!-- Custom Button Style - Soft & Rounded -->
+    <style name="Widget.Aniper.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">@dimen/corner_radius_lg</item>
+        <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:textStyle">bold</item>
+        <item name="elevation">@dimen/elevation_md</item>
+    </style>
+
+    <style name="Widget.Aniper.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="cornerRadius">@dimen/corner_radius_lg</item>
+        <item name="android:textSize">@dimen/text_body_sm</item>
+    </style>
+
+    <!-- Card Style - Glassmorphism -->
+    <style name="Widget.Aniper.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cornerRadius">@dimen/corner_radius_lg</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardBackgroundColor">@color/surface</item>
     </style>
 
     <!-- Text Styles -->
     <style name="TextAppearance.Aniper.DisplaySmall" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textSize">@dimen/text_display_sm</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.TitleLarge" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/text_title_lg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
     </style>
 
     <style name="TextAppearance.Aniper.TitleMedium" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_md</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
     </style>
 
     <style name="TextAppearance.Aniper.TitleSmall" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">@dimen/text_title_sm</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="TextAppearance.Aniper.BodyLarge" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/text_body_lg</item>
+        <item name="android:textColor">@color/on_surface</item>
     </style>
 
     <style name="TextAppearance.Aniper.BodyMedium" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/text_body_md</item>
+        <item name="android:textColor">@color/on_surface</item>
     </style>
 
     <style name="TextAppearance.Aniper.BodySmall" parent="TextAppearance.AppCompat.Body2">
         <item name="android:textSize">@dimen/text_body_sm</item>
+        <item name="android:textColor">@color/on_surface_secondary</item>
     </style>
 
     <style name="TextAppearance.Aniper.LabelMedium" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">@dimen/text_label_md</item>
+        <item name="android:textColor">@color/on_surface_secondary</item>
     </style>
 </resources>

@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FF6B9E</color>
-    <color name="primary_container">#FFD9E8</color>
-    <color name="on_primary_container">#3E0021</color>
-    <color name="secondary">#7B5EA7</color>
-    <color name="secondary_container">#EDDCFF</color>
+    <!-- Primary Colors - Soft Pink -->
+    <color name="primary">#F0A8D8</color>
+    <color name="primary_container">#FCE4F0</color>
+    <color name="on_primary_container">#4A1C3C</color>
+
+    <!-- Secondary Colors - Soft Lavender -->
+    <color name="secondary">#D4C5E2</color>
+    <color name="secondary_container">#EFE6FF</color>
+    <color name="on_secondary_container">#36234A</color>
+
+    <!-- Tertiary Colors - Soft Mint -->
+    <color name="tertiary">#C8E6E0</color>
+    <color name="tertiary_container">#E8F6F3</color>
+    <color name="on_tertiary_container">#1A4239</color>
+
+    <!-- Background & Surfaces -->
+    <color name="background">#F9F7F4</color>
     <color name="surface">#FFFBFF</color>
-    <color name="surface_variant">#F3DEE6</color>
+    <color name="surface_variant">#F3E8EB</color>
+
+    <!-- Text Colors -->
+    <color name="on_surface">#1C1B1F</color>
+    <color name="on_surface_secondary">#79747E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="error">#FF5252</color>
-    <color name="error_light">#FFCDD2</color>
+
+    <!-- Status Colors -->
+    <color name="error">#F4A8A8</color>
+    <color name="error_container">#FFE8E8</color>
+    <color name="success">#A8D4B4</color>
+    <color name="warning">#FFD9A8</color>
+
+    <!-- Shadow -->
+    <color name="shadow">#00000015</color>
 </resources>
